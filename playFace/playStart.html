@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>啪啪啪,红包等你拿!</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/playStart.css"/>
+    <link rel="stylesheet" type="text/css" href="css/playSuccess.css"/>
+    <link rel="stylesheet" type="text/css" href="css/paihang.css"/>
+    <link rel="stylesheet" type="text/css" href="css/hongbao.css"/>
+    <link rel="stylesheet" type="text/css" href="css/zjinbi.css"/>
+</head>
+<body>
+<div id="main">
+    <audio id="bgmusic"  class="music1" src="MP3/a.mp3" autoplay="autoplay" loop></audio>
+    <audio id="paimusic" class="pai"  src="MP3/pai1.mp3"></audio>
+    <div class="top">
+        <div class="head clearfix">
+            <div class="headImg"><img id="headImg" src="" alt=""/></div>
+            <div class="leval">0</div>
+        </div>
+        <div class="music"></div>
+    </div>
+    <div class="face select"></div>
+    <div class="clickSection" id="clickSection">
+        <p class="time">
+            <span class="timeText">时间</span><span class="timeNum">10.00</span>
+        </p>
+        <div class="startbut"><span>[</span><span class="mr5" id="staraa">点击开始</span><span>]</span></div>
+        <div class="startingbut"></div>
+
+    </div>
+    <!--游戏挑战成功的开始-->
+    <div class="palySuccess">
+        <div class="logo"></div>
+        <div class="textContent">
+            <p><span>您的成绩为:</span> <span class="playScore1"></span><span>分</span></p>
+            <p><span>最佳成绩:</span> <span class="playScore"></span><span>分</span></p>
+            <p><span class="mrb10">今天还有</span> <span class="times"></span><span>次抽奖机会</span></p>
+            <div class="buttons">
+                <!--抽奖-->
+                <div class="choujiang">赶紧去抽奖</div>
+                <div class="buttBottom clearfix">
+                    <!-- 排行榜 -->
+                    <div class="buttBottomRight">排行榜</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--游戏挑战成功的结束-->
+    <!--游戏挑战失败的开始-->
+    <div class="palyFail" >
+        <div class="logo"></div>
+        <div class="textContent">
+            <p><span>您的成绩为:</span> <span class="playScore1"></span><span>分</span></p>
+            <p class="mrb10"><span>成绩必须达到66分才可以抽奖</span></p>
+            <p><span>最佳成绩:</span> <span class="playScore"></span><span>分</span></p><!--
+            <p class="mrb10"><span>最佳排名为:</span> <span>No.1</span></p>
+
+            --><div class="buttons">
+                <!--再玩一次-->
+                <div class="playagin" >再玩一次</div>
+
+                <div class="buttBottom clearfix">
+                    <!--<a class="buttBottomLeft" href="index.html"></a>
+                    --><a class="buttBottomRight">排行榜</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--游戏挑战失败的结束-->
+    <!--排行榜-->
+    <div class="paihang">
+        <div class="paihangTopW">
+            <ul class="paihangTop clearfix">
+                <li >活动说明</li>
+                <li class="current">排行榜</li>
+                <li id="zhongjiang">我的奖品</li>
+            </ul>
+            <div class="close"></div>
+        </div>
+        <div class="conboxs" id="conboxs">
+            <div class="conbox " >
+                <!--活动说明开始-->
+                <div class="hdbox">
+                    <div class="arbg">活动奖品</div>
+                    <p>降龙十八掌:红包拿到手软,掌掌有惊喜.</p>
+                    <div class="arbg">活动时间</div>
+                    <p><span>2017-5-26</span><span class="mr5">到</span><span>2017-5-30</span></p>
+                    <div class="arbg">主办单位</div>
+                    <p>本次活动主办单位为 <span class="gold">小草播播</span></p>
+                    <div class="arbg arbg2">活动及兑奖说明</div>
+                     <p style="line-height:30px;">达到66掌即可获得抽奖机会,每人每日有3次抽奖机会.</p>
+                       <p style="line-height:30px;">获奖后扫描二维码,进群即可领取金币哦~</p>
+                       <div id="erweimai">
+                          <p class="erweimaP">扫一扫下载小草播播</p>	
+                          <p class="erweimaP">发现更多惊喜</p>	
+                          <div class="erweimabox" style="width:1.8rem;height:1.8rem">
+                             <img src="http://image.xcbobo.com/PubImgSour/playFace/images/aperweima.png" />
+                          </div>	
+                       </div>
+                </div>
+                <!--活动说明结束-->
+            </div>
+            <div class="conbox select ">
+                <!--排名开始-->
+                <div class="pm"><span>当前排名:</span><span>10</span><span>位</span><span class="ml10">(只显示前10名)</span></div>
+                <div class="phboxs">
+                    <div class="hs clearfix" id="hs">
+                        <span>排行</span>
+                        <span>头像</span>
+                        <span>昵称</span>
+                        <span>成绩</span>
+                    </div>
+                    <div class="pmboxs">
+                        <ul class="phlis">
+                        </ul>
+                    </div>
+                </div>
+                <!--排名结束-->
+            </div>
+            <div class="conbox ">
+                <!--中奖记录的开始-->
+                <div class="zjbox">
+                    <p class="zj"><span>中奖</span><span id="zjtimes">1</span><span>次</span><span class="ml20" id="dj"></span><span class="ml20" id="monery"></span></p>
+                </div>
+                <!--中奖记录的结束-->
+            </div>
+        </div>
+    </div>
+    <!--抽奖的板块-->
+    <div class="hongbaobox">
+        <!--红包板块-->
+        <div class="hongbao">
+            <div class="kai"></div>
+        </div>
+        <!--中金币板块-->
+        <div class="zjinbi">
+            <p class="top"><span>恭喜</span><span id="zjname"></span><span>获得</span><span class="mr5" id=adengjiang></span><span id=zjjinbia></span><span>个金币</span></p>
+            <div class="sjbimg"></div>
+            <div class="saoma clearfix">
+                <div class="jianglibox">
+                  <p class="saomaText" >识别二维码领取奖励</p>
+                  <div class="erweima"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/erweima.png" /></div>
+                </div>	
+            </div>
+        </div>
+        <!--没有中金币再玩一次-->
+        <div class="faile">
+            <div class="faileIn"></div>
+            <!--再玩一次-->
+            <div class="play2"></div>
+        </div>
+        <!--没有抽奖机会了-->
+        <div class="noChance">
+            <div class="arrow">
+            </div>
+            <p class="mt">你今天已经没有抽奖机会了</p>
+            <p class="mrb90">分享给好友或者群聊</p>
+            <p>每成功邀请一位好友参与</p>
+            <p>当天将额外获得1次抽奖机会</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/playStart.js"></script>
+<script type="text/javascript" src="js/paihang.js"></script>
+
+

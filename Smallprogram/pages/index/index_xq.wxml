@@ -1,0 +1,78 @@
+<view class='index_xq_wrap'>
+  
+  <video wx:if="{{res.isLive==1}}" id="myVideo" class='video' objectFit="fill" autoplay="true" controls="false" show-center-play-btn="false" src='{{res.rtmburl}}'>
+  </video>
+  <view id='noUser' wx:if="{{res.isLive!=1}}" >
+    <image src='../image/bg2.png' style='width:100%;  height:100%;' />
+    <text>主播暂时不在直播~</text>
+  </view>
+
+  <view class='zhibo_iframe'>
+    <view class='zhibo_iframe_top'>
+      <view class='zhibo_iframe_top_left'>
+        <view class='headimg' style='background-image: url({{userimg}});'></view>
+         <!-- <image src='{{userimg}}'/>  -->
+        <view class='useriframe'>
+          <text class='username'>{{username}}</text>
+          <text class='gzrs'>{{res.num}}人</text>
+        </view>
+        <view class='useriframe'>
+          <text class='username'>主播id：{{zid}}</text>
+          <text class='gzrs'>阳光：{{res.sunCount}} </text>
+        </view>
+        <button open-type="share">分享</button>
+        <view class='clear'></view>
+      </view>
+     <!--   <view class='zhibo_iframe_top_right'>
+        <view>主播id：{{zid}}</view>
+        <view>阳光：{{res.sunCount}} </view> 
+       <scroll-view scroll-x>
+          <view class='zhibouserlist'>
+          <image src='../image/list1.jpg'/>
+          </view>
+           <view class='zhibouserlist'>
+          <image src='../image/list2.jpg'/>
+          </view>
+           <view class='zhibouserlist'>
+          <image src='../image/list3.jpg'/>
+          </view>
+           <view class='zhibouserlist'>
+          <image src='../image/list4.jpg'/>
+          </view>
+          <view class='zhibouserlist'>
+          <image src='../image/list1.jpg'/>
+          </view>
+           <view class='zhibouserlist'>
+          <image src='../image/list2.jpg'/>
+          </view>
+           <view class='zhibouserlist'>
+          <image src='../image/list3.jpg'/>
+          </view>
+           <view class='zhibouserlist'>
+          <image src='../image/list4.jpg'/>
+          </view>       
+        </scroll-view> 
+      </view>-->
+      <view class='clear'></view>
+    </view>
+    <!-- <view class='zhibo_iframe_top_bottom'>
+      <view class='zhibo_iframe_top_bottom_left'>
+        <view class='userid_iframe'>阳光：{{res.sunCount}}</view>
+        <view class='userid_iframe'>主播id：{{zid}}</view>
+      </view>
+    </view> -->
+<!--     <scroll-view class='liaotiframe' scroll-y>
+      <view class='gonggao'>
+        <text class='gonggaousername'>小草官方帐号:</text>
+        <text class='gonggaoneirong'>　欢迎来到直播间!如直播间出现违法违规、色情低俗，抽烟喝酒等行为,请及时举报。管理员24小时在线巡查并接受举报，感谢你与小草一起努力,手守护我们共同的社区</text>
+      </view>
+    </scroll-view> -->
+
+<!--     <view class='pinglun_iframe'>
+      <input placeholder='说点什么...' placeholder-style="color:#fff" />
+
+        <button class='fenxiang' open-type="share"></button>
+
+    </view> -->
+  </view>
+</view>

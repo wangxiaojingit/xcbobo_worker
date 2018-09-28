@@ -1,0 +1,98 @@
+#tab {
+        flex: 0 0 1.1rem;
+    width: 100%;
+    height: 0.8rem;
+   
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* padding: 0.2rem 0; */
+    box-sizing: border-box;
+    /* color: #7064cd; */
+    /* padding: 0.1rem; */
+    padding: 0 0.2rem 0.1rem 0.2rem;
+    
+  }
+  
+  
+  #tab .left.select,#tab .right.select{
+    color:#00feff;
+  }
+  #tab .left,
+  #tab .right {
+    text-align: center;
+    height: 100%;
+    float:left;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    position:relative;
+    line-height:0.6rem;
+     width:3.2rem;
+    height:0.8rem;
+    
+  }
+  #tab .left {
+    flex: 1;
+    font-size: 12px;
+    float: left;
+    text-align: center;
+  
+    background:url("../images/kjgoods.png") no-repeat center center;
+    background-size:cover;
+  }
+   #tab .left.select{
+     background:url("../images/kjgoodsSelect.png") no-repeat center center;
+     background-size: cover;
+  }
+  #tab .left .iconGood {
+    width: 0.3rem;
+    height: 0.32rem;
+    background: url("../images/pack.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0.78rem;
+    top: 0.16rem;
+  }
+   #tab .left.select .iconGood {
+    width: 0.3rem;
+    height: 0.32rem;
+    background: url("../images/select_pack.png");
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  #tab .right {
+    font-size:12px;
+    float: right;
+     background:url("../images/mygoods.png") no-repeat center center;
+    background-size:cover;
+     position: relative;
+  }
+  
+   #tab .right.select {
+    
+   
+     background:url("../images/mygoodsSelect.png") no-repeat center center;
+     background-size: cover;
+    
+  }
+  #tab .right .iconMyGood {
+    width: 0.29rem;
+    height: 0.32rem;
+    background: url("../images/my.png");
+    background-size: 100% 100%;
+    display: inline-block;
+    position: absolute;
+   left: 0.78rem;
+    top: 0.16rem;
+  }
+  #tab .right.select .iconMyGood {
+    width: 0.29rem;
+    height: 0.32rem;
+    background: url("../images/select_my.png");
+    background-size: 100% 100%;
+    display: inline-block;
+  }
+  .dot{position:absolute;font-size:10px;
+        left: 2.5rem;
+    top: 0.1rem;
+    color:red;}

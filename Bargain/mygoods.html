@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+  
+    <style  type="text/css">
+      [v-cloak] {
+		display: none;!important；
+	  }
+    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/head.css">
+    <link rel="stylesheet" href="css/gift.css">
+    <link rel="stylesheet" href="css/footer.css"> 
+    <link rel="stylesheet" href="css/mygoods.css"> 
+    <link rel="stylesheet" href="css/blockshare.css">
+    <style type="text/css" rel="stylesheet">
+      .giftlists li .li_right span {
+        flex: 1; 
+      }
+      
+      #lingqvtips{
+        position:fixed;
+        left:50%;
+        top:50%;
+        width:300px;
+        height:50px;
+        line-height:50px;
+        text-align:center;
+        margin-left:-150px;
+        margin-top:-25px;
+            background: #371b89;
+            color:#fff;
+            display:none;
+            font-size:14px;
+      }
+    </style>
+    <title>我的砍价物品</title>
+    <script src="js/base/resize.js"></script>
+</head>
+<body>
+    <div id="main" v-cloak>
+      <div id="contentbox">
+          <!-- !mygoodslists.length -->
+         <div id="nogift">
+             <div class="nogiftIn">
+                    <p>还没有拿到砍价的商品</p>
+                    <p>快去选喜欢的礼物砍价吧!</p>
+                    <a href="javascript:;" class="chooseGif" @click="tohome">选择礼物</a>
+             </div>
+         </div>
+         <!-- 礼物列表 -->
+         <!-- mygoodslists.length -->
+         <ul class="giftlists" >
+                <li v-for="(item,index) in mygoodslists">
+                <div class="imgbox">
+                  <img width="120"  class="giftImg" v-bind:src="imgurl(item)"  alt=""> 
+                </div>
+                
+                <!-- 继续砍价状态 -->
+                <div class="li_right" v-show="item.flag==1">
+                    <span style="color:#ad94ff;font-size:14px;">[{{item.goods_name}}]<span style="width:5px;"></span>限量礼物赶紧来抢!</span>
+                    <span >{{formateTime(item.count_down)}}后结束</span>
+                    <span style="color:#a7aa9d" class="freeling">距离免费领取</span>
+                    <span style="color:#ff685f">还差{{((Number(item.gift_price)-Number(item.current_price))/100).toFixed(2)}}元</span>
+                    <a class="kbut" href="javascript:;" @click="toMessage(item,index)">继续砍价</a>
+                </div>
+                <!--砍价成功的状态 -->
+                <div class="li_right"  v-show="item.flag==2">
+                        <span style="color:#ad94ff" >[{{item.goods_name}}]礼物,价值千元求爱首先!</span>
+                        <span style="color:#03bd61" class="cutSucess">已砍价成功成功</span>
+                        <a style="background:#03bd61;color:#fff;" class="kbut" href="javascript:;" @click="getreward(item,index)">领取奖励</a>
+                </div>
+                <!-- 砍价失败的状态 -->
+                <div class="li_right" v-show="item.flag==4">
+                        <span >[{{item.goods_name}}]礼物,价值千元求爱首先!</span>
+                        <span style="color:#9b9c98" class="cuterror kbut">砍价失败</span>
+                </div>
+                <!-- 砍价失败的状态 -->
+                <div class="li_right" v-show="item.flag==3">
+                        <span >[{{item.goods_name}}]礼物,价值千元求爱首先!</span>
+                        <span  class="cuterror kbut" style="background:#969696;color:#fff">已领取</span>
+                </div>
+                </li>
+         </ul>
+      </div>
+     <!-- 底部tab -->
+     <!--  
+      <div id="tab">
+                <span class="left"  @click="tohome">
+                    <i class="iconGood"></i>
+                    <span>砍价商品</span>    
+                </span>
+                <span class="right select" @click="toMygoods">
+                    <i class="iconMyGood"></i>
+                    <span>我的商品</span>    
+                     <i  class="dot"  v-if="myGoodsNum">({{myGoodsNum}})</i>  
+                </span>
+      </div> 
+      -->
+      
+      <div id="tab">
+            <span class="left" @click="tohome">
+                 
+            </span>
+            <span class="right select" @click="toMygoods">
+                <i  class="dot" v-if="myGoodsNum" >({{myGoodsNum}})</i>  
+            </span>
+      </div> 
+     <!-- 在web端 领取奖励 出现的下载弹框-->
+     <div id="getpriceTips">
+      <div id="getpriceTipsIn">
+	       <p class="p1">需要在[小草APP]内才能领取吆</p>
+	       <p class="p2">提示:在小草内绑定现有的微信后,礼物就不会丢失了~</p>
+	       <div class="downbottom" @click="downapp">打开小草直播APP</div>
+      </div>
+     </div>
+      <!-- 分享view -->
+      <div class="blockShare" @click="closeShare">
+            <div class="shareContent" style="width:100%">
+                           <p class="shareText"><span id="shareText1">首刀砍掉</span><span class="yellow">{{(cut1_money/100).toFixed(2)}}</span>元,还差<span class="yellow">{{(leave_money/100).toFixed(2)}}</span><span>元,</span><span id="shareText2">分享给好友快速帮你砍价吧!~</span></p> 
+                            <div class="shareBottom">
+                                <div class="icons" @click.stop="share(2)">
+                                    <div class="wx" >
+                                        
+                                    </div>
+                                </div>
+                                <div class="shareclose" @click="closeShare">取消</div>
+                            </div>
+            </div>
+       </div>
+        <!-- web分享view -->
+      <div class="blockWebShare2" @click="closeBlockWebShare2">
+        <div class="blockWebShare2Top">右上角分享吆!</div>
+        <div class="blockWebShare2Center">
+            <p class="shareText"><span id="shareText1">首刀砍掉</span><span class="yellow" >{{(cut1_money/100).toFixed(2)}}</span>元,还差<span class="yellow" >{{(leave_money/100).toFixed(2)}}</span><span>元,</span><span id="shareText2">分享给好友快速帮你砍价吧!</span></p>
+        </div>
+     </div>     
+      <div id="lingqvtips">
+      
+      </div>
+    </div>
+</body>
+</html>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/base/jquery-1.7.2.min.js"></script>
+<script src="js/base/isPhone.js"></script>
+<script src="js/base/vue.min.js"></script>
+<script src="js/base/axios.js"></script>
+<script src="js/base/prefixfree.min.js"></script>
+<script src="js/mygoods.js?v=3.0"></script>
+<script>
+ var orunMessage=document.getElementById("orunMessage");
+ var list=[{"content":"大海拿到了免费礼物小鲜花"},{"content":"大海2拿到了免费礼物小鲜花"}]
+
+
+ //{"content":"大海拿到了免费礼物小鲜花"},{"content":"大海2拿到了免费礼物小鲜花"}
+//  var runMessage=function(){
+//     var num=-1;
+//     list.forEach(function(index,item){
+      
+//     })    
+
+
+
+//  }
+// var otijiao=document.getElementById("tijao");
+// otijiao.onclick=function(){
+//   alert(1)
+//   //调用原生的方法
+//   //比如他们的方法叫back
+//   back() 
+ 
+
+// }
+
+
+</script>
+

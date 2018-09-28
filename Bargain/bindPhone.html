@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定手机号</title>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <style>
+        *{margin:0;padding:0;}
+        html,body{width:100%;
+            height: 100%;}
+        #main{
+            width:100%;
+            height:100%;
+            padding:20px;
+            font-size:14px;
+            box-sizing: border-box;
+
+        }
+        .top,.center{
+            width:100%;
+            height:30px;
+            line-height:30px;
+            display: flex;
+            flex-direction: row;
+
+        }
+        .phoneText,.phoneNumber,.getCode{height:30px;}
+        .phoneText{
+            width:75px;
+            flex:0 0 75px;
+        }
+        #phoneNumber,#phoneCode{
+            flex:1;
+        }
+        #phoneNumber input,#phoneCode input{
+            width:100%;
+            height:30px;
+            padding-left:10px;
+            box-sizing:border-box;
+        }
+        .getCode,.getCode2{
+            width: 100px;
+            flex: 0 0 100px;
+            text-align: right;
+            background:#169cd6;text-align: center;color:#fff;
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+        .getCode2{background:none;}
+        .bindbut{ width:200px;height:30px;line-height:30px;background:#169cd6;text-align: center;color:#fff;  margin: 50px auto;}
+        .error{
+            line-height: 30px;
+            font-size: 10px;
+            color: red;
+            display:none;
+            font-size:10px;
+        }
+        .center{
+            margin-top: 10px;
+        }
+        .errorCode{color:red;font-size:10px;display:none;}
+       #timeText{font-size:10px;text-align: center;
+       display:none;
+    color: #fff;
+    margin-left: 10px;
+    padding: 0 5px;
+    background: #666;
+    }
+    #time{color:red;}
+    </style>
+</head>
+<body>
+  <div id="main">
+      <div class="top">
+          <span class="phoneText">手机号:</span> <span  id="phoneNumber"><input id="phone" type="Number" placeholder="请输入绑定的手机号"></span><span class="getCode" id="getCode">获取验证码</span><span id="timeText">重新发送(<span id="time">60</span>s)</span>
+      </div>
+      <p class="error">请输入正确的手机号码</p>
+      <div class="center"><span class="phoneText">验证码:</span> <span id="phoneCode"><input id="code" type="text" placeholder="输入短信中的验证码"/></span><span class="getCode2" ></span></div>
+      <p class="errorCode">请填写验证码</p>
+      <div class="bindbut" id="bindbut">绑定</div>
+  </div>
+</body>
+</html>
+<script type="text/javascript" src="js/base/jquery-1.7.2.min.js"></script>
+<script src="js/base/isPhone.js"></script>
+<script>
+    var Wurl=window.location.href,base="";
+    if(Wurl.indexOf("www.xcbobo.com")>-1){
+      base="https://www.xcbobo.com";
+    }else if(Wurl.indexOf("www.xiuktv.com")>-1){
+       base="http://www.xiuktv.com";
+    }else if(Wurl.indexOf("127.0.0.1:8889")>-1){
+      base="http://127.0.0.1:8889";
+    }
+
+  //获取网址上的参数
+  function parameter(){
+    var url=document.location.href;
+    //  var url="http://www.xiuktv.com/xcbb_web/h5Activity/getSharePageInfo?zid=10004125&uid=10004122&type=1&sex=1&page=1&pageSize=100&token=123&province=111&nice=小辣"
+    var obj={};
+    var tem=[];
+    var ary=url.split("?")[1].split("&");
+    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        tem= cur.split("=");
+        obj[tem[0]]=tem[1];
+    }
+    return obj;
+  }
+  
+  
+		var uid=parameter().uid||"";
+	
+		var token=parameter().token||"";
+	
+		var union_id=parameter().union_id||"";
+	
+		var isShare=parameter().isShare||"";
+	
+		var kanjia_id=parameter().kanjia_id||"";
+	
+		var giftId=parameter().giftId||"";
+		var deviceNum=parameter().deviceNum||'';
+		
+	
+
+    $(function(){
+    	
+        //验证手机号码加上校验地区的
+        var reg=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+        $("#phone").blur(function(){
+           var phoneNumber=$(this).val();
+           if(reg.test(phoneNumber)){
+               //如果true 就是error 隐藏
+               $(".error").hide();
+           } else{
+               $(".error").show();
+           }
+        })
+        
+        $("#code").blur(function(){
+           if( $("#code").val()!="" && $("#code").val()!=null){
+           	codeFlag=true;
+           	$(".errorCode").hide();
+           }else{
+           	codeFlag=false;
+           	$(".errorCode").show();
+           }
+        })
+        //点击获取验证码
+        $(".getCode").click(function(){
+            var phoneNumber=$("#phone").val();
+           
+            if(reg.test(phoneNumber)){
+                $(".error").hide();
+                //如果验证手机号输入符合规范,再走ajax请求
+                         //获取验证码接口
+               
+                $.ajax({ 
+                    url:base+"/xcbb_web/phone/bindPhone/getUserMsgCode?phone="+phoneNumber, 
+                    type:"get",
+                    dataType:"json",
+                    success: function(res){
+                       $("#getCode").hide();
+                       $("#timeText").show();
+                       var m=60;
+                       
+
+                      var timer= window.setInterval(function(){
+                           m--;
+                           if(m<0){
+                             clearInterval(timer)
+                             $("#timeText").hide();
+                             $("#getCode").show();
+                           }
+                           $("#time").html(m)
+                       },1000)
+                    },
+                    error:function(response){
+                        alert(res.msg);
+                        $("#getCode").show();
+                       $("#timeText").hide();
+
+                    }
+                });
+            }else{
+                $(".error").show();
+            }
+         })
+
+         //点击绑定手机号   
+
+        $("#bindbut").click(function(){
+        	//进行手机号码 和验证码的验证
+        	 var phoneNumber=$("#phone").val();
+        	var code=$("#code").val();
+        	var uid=Number(parameter().uid);
+        	 var phoneFlag=true,codeFlag=true;
+             if(reg.test(phoneNumber)){
+                 //如果true 就是error 隐藏
+                 $(".error").hide();
+                 phoneFlag=true;
+             } else{
+            	 phoneFlag=false;
+                 $(".error").show();
+             }
+             //验证码的验证
+            if( $("#code").val()!="" && $("#code").val()!=null){
+            	codeFlag=true;
+            	$(".errorCode").hide()
+            }else{
+            	codeFlag=false;
+            	$(".errorCode").show();
+            }
+             
+            if(phoneFlag&&codeFlag){
+            	
+            	
+            	
+
+                $.ajax({ 
+                    url:base+"/xcbb_web/phone/bindPhone/bindUidPhone?phone="+phoneNumber+"&code="+code+"&uid="+uid, 
+                    type:"get",
+                    dataType:"json",
+                    success: function(res){
+                       alert(res.msg);
+                       //绑定成功之后,就跳转到我的商品页面引导客户领取
+                       window.setTimeout(function(){
+                           if (isShare==1){
+                                //说明在web
+                                var tourl=base+"/xcbb_web/wh5/Bargain/mygoods.html?uid="+uid+"&token="+token+"&union_id="+union_id+"&isShare="+isShare+"&kanjia_id="+kanjia_id+"&giftId="+giftId;
+                                var link=base+"/xcbb_web/auth2.html?url="+tourl.split("#")[0];
+                                window.location.href=link;
+                           }else{
+                        	   
+                        	if(isIOS){
+                        		
+                        		 window.location.href=base+"/xcbb_web/wh5/Bargain/mygoods.html?uid="+uid+"&token="+token+"&union_id="+union_id+"&isShare="+isShare+"&kanjia_id="+kanjia_id+"&giftId="+giftId+"&deviceNum="+deviceNum;
+                        	}else{
+                        		 window.location.href=base+"/xcbb_web/wh5/Bargain/mygoods.html?uid="+uid+"&token="+token+"&union_id="+union_id+"&isShare="+isShare+"&kanjia_id="+kanjia_id+"&giftId="+giftId;
+                        	}   
+                           
+
+                           }
+                       },1000)
+                    },
+                    error:function(response){
+                        alert(res.msg)
+                    }
+                });
+            }
+        })
+    })
+</script>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="css/anzhuozb.css"/>
+    <link rel="stylesheet" href="css/anzhuoWxindex.css"/>
+    <style type="text/css" rel="stylesheet">
+        .startOver{position:absolute;left:0px;top:0px;z-index: 100;display:none;width:100%;height:100%;}
+        html,body{width:100%;height:100%;overflow-y: hidden;}
+        #main,#mainIn{width: 100%; height: 100%;}
+        .giftbox,#chatbox{display: none;}
+        #pause{width:1.2rem;height:1.2rem;background:url("images/pause.png");background-size:100%;position:absolute;left:50%;top:50%;margin-left:-0.6rem;margin-top:-0.6rem;}
+    </style>
+</head>
+<body style="display:none;">
+
+<video id="video1" poster=""  x5-video-player-type="h5" x5-video-orientation="portraint"
+       x5-video-player-fullscreen="true" autoplay="autoplay"  preload="none"
+       style="object-fit:fill"
+       src="">
+</video>
+<div id="pause"></div>
+<input type="hidden";value="";id="op">
+<div class="zt" style="display:none"></div>
+<div class="footer" id="footerzd">
+    <!--底部发送聊天-->
+    <div class="chat">
+        <div class="chatbox" id="chatbox" >聊聊天...</div>
+        <ul class="giftbox">
+            <li class="gifbut" id="gifbut"></li>
+            <li></li>
+        </ul>
+        <div class="startFmIn">
+            <span id="startFmInL"></span>
+            <a id="startFmInR" ></a>
+        </div>
+    </div>
+</div>
+<!--进入直播中页面start-->
+<div class="startOver" >
+    <div id="main"  >
+        <!--视频开始部分Start-->
+        <div id="mainIn">
+            <div id="zbbox">
+                <!--送礼物规划版start-->
+                <div class="sliwuOver">
+                    <div class="gifInBox6">
+                        <div class="gifIn">
+                            <div class="gifInLeft">
+                                <div class="gifInLeftL"></div>
+                                <div class="gifInLeftR">
+                                    <div class="gifInLeftrT">滔滔不绝</div>
+                                    <div class="gifInLeftrB">送幸运星</div>
+                                </div>
+                            </div>
+                            <div class="gifInRight">
+                                <div class="gifInRightL"></div>
+                                <div class="gifInRightC">
+                                    <div class="gifInRightcT">520</div>
+                                    <div class="gifInRightcB">连送</div>
+                                </div>
+                                <div class="gifInRightRt clearfix">
+                                    <div class="cheng1">X</div>
+                                    <div class="showgifNum2">1</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="gifInBox5">
+                        <div class="gifIn">
+                            <div class="gifInLeft">
+                                <div class="gifInLeftL"></div>
+                                <div class="gifInLeftR">
+                                    <div class="gifInLeftrT">滔滔不绝</div>
+                                    <div class="gifInLeftrB">送幸运星</div>
+                                </div>
+                            </div>
+                            <div class="gifInRight">
+                                <div class="gifInRightL"></div>
+                                <div class="gifInRightC">
+                                    <div class="gifInRightcT">520</div>
+                                    <div class="gifInRightcB">连送</div>
+                                </div>
+                                <div class="gifInRightRt clearfix">
+                                    <div class="cheng1">X</div>
+                                    <div class="showgifNum2">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gifInBox4">
+                        <img src="images/atten_bg.png" alt=""/>
+                        <div class="neirong">小坏坏进入了直播间</div>
+                        <div class="zua"><img src="images/m12@2x.png" alt=""/></div>
+                    </div>
+                    <div class="gifInBox31">
+                        <div class="gifIn">
+                            <div class="gifInLeft">
+                                <div class="gifInLeftL"></div>
+                                <div class="gifInLeftR">
+                                    <div class="gifInLeftrT">小呆萌</div>
+                                    <div class="gifInLeftrB">送棒棒糖</div>
+                                </div>
+                            </div>
+                            <div class="gifInRight">
+                                <div class="gifInRightL"></div>
+                                <div class="gifInRightC">
+                                    <div class="gifInRightcT">520</div>
+                                    <div class="gifInRightcB">连送</div>
+                                </div>
+                                <div class="gifInRightRt clearfix">
+                                    <div class="cheng1">X</div>
+                                    <div class="showgifNum2">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--送礼物规划版end-->
+                <div id="fc">
+                    <div class="headMessage clearfix"  >
+                        <!--直播头像房间号等头部信息-->
+                        <div class="zbMessage clearfix">
+                            <div class="zbHead">
+                                <img src="" alt="头像"/>
+                                <div class="zuxs"></div>
+                            </div>
+                            <div class="zbId">
+                                <div class="zbName"></div>
+                                <div class="gzNumber">678人</div>
+                            </div>
+                            <!--关注-->
+                            <div class="zbFocus" id="zbFocus" ng-click="downHrefs(e)"></div>
+                        </div>
+                        <!--头像列表-->
+                        <div class="headbox">
+                            <div class="headI"></div>
+                            <div class="headIcons">
+                                <ul class="headIconsIn">
+                                    <!--<li ng-repeat="s in headlistData" >
+                                        <img src="{{s.src}}" alt=""/>
+                                        <div class="zlis">
+                                            <img src="{{s.zjsrc}}" alt="等级"/>
+                                        </div>
+                                    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--关注多少名-->
+                    <div class="loves">
+                        <!-- <img src="http://www.xiuktv.com//live/images/656b008b-403a-4401-bfc3-3d18d9dc3fdb.png" alt=""/>-->
+                        <div class="lovesInTop"></div>
+                        <div class="lovesInBottom"  style='color:#FFFFFF;text-shadow:#f68ab2 0px 1px 3px,#f68ab2 1px 0px 3px,#f68ab2 0px -1px 3px,#f68ab2 -1px 0px 3px;filter:glow(color=#f68ab2,strength=3)'></div>
+                    </div>
+                    <!--送礼物的板块-->
+                    <!--底板的板块-->
+                    <div class="footer">
+                        <!--评论的板块-->
+                        <div class="plbox" style="overflow:hidden;">
+                            <!-- <marquee  direction=up scrolldelay="1000">-->
+                            <ul class="comments">
+                                <li class="clearfix">
+                                    <span class="chatIcon">20</span>
+                                    <span class="chatName">愤怒的麻豆:</span>
+                                    <span class="chatContent">主播在发呆吗?</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="chatIcon">59</span>
+                                    <span class="chatName">小豆芽:</span>
+                                    <span class="chatContent">分享了主播的直播</span>
+                                </li>
+                                <li class="clearfix">
+
+                                    <span class="chatName">白水煮鸡蛋:</span>
+                                    <span class="admin">被设为管理员</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="chatIcon">59</span>
+                                    <span class="chatName">小豆芽:</span>
+                                                <span class="chatContent">
+                                                  <span class="it">@开黑</span>
+                                                  <span>你这是在干啥</span>
+                                                </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="chatIcon">20</span>
+                                    <span class="chatName">愤怒的麻豆:</span>
+                                    <span class="chatContent">4</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="chatIcon">59</span>
+                                    <span class="chatName">小豆芽:</span>
+                                    <span class="chatContent">3</span>
+                                </li>
+                                <li class="clearfix">
+
+                                    <span class="chatName">白水煮鸡蛋:</span>
+                                    <span class="admin">2</span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="chatIcon">1</span>
+                                    <span class="chatName">小豆芽:</span>
+                                                <span class="chatContent">
+                                                  <span class="it">@开黑</span>
+                                                  <span>1</span>
+                                                </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="chatIcon">1</span>
+                                    <span class="chatName">小豆芽:</span>
+                                                <span class="chatContent">
+                                                  <span class="it">@开黑</span>
+                                                  <span>1</span>
+                                                </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--底部下载小草-->
+                    <!--<div class="download" id="download">
+                        <span id="downloadLeft"></span>
+                        <a id="downloadRight" href="{{downHref}}"></a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <!--暂停按钮start-->
+        <div id="pose">
+            <div id="posebut" src="images/pause.png" alt="暂停"/> </div>
+    </div>
+    <!--暂停按钮end-->
+</div>
+<!--视频开始部分End-->
+<div id="downZhe"></div>
+<div class="downloadbox">
+    <a class="downButton" id="downButton"  class="bottom"></a>
+</div>
+</div>
+<!--进入直播中页面end-->
+</body>
+</html>
+<!-- 必须加在微信api资源 -->
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script src="js/resize.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/angular.js"></script>
+<script>
+    $(function(){
+
+        //获取网址上的参数
+        function parameter(){
+            var url=document.location.href;
+            //  var url="http://www.xiuktv.com/xcbb_web/h5Activity/getSharePageInfo?zid=10004125&uid=10004122&type=1&sex=1&page=1&pageSize=100&token=123&province=111&nice=小辣"
+            var obj={};
+            var tem=[];
+            var ary=url.split("?")[1].split("&");
+            for(var i=0;i<ary.length;i++){
+                var cur=ary[i];
+                tem= cur.split("=");
+                obj[tem[0]]=tem[1];
+            }
+            return obj;
+        }
+        //判断域名
+        var ymname="";
+        var ymnamePho="";//头像地址
+        var downHref="";//下载链接
+        if(parameter().ym=="1"){
+            ymname="http://www.xcbobo.com";
+            ymnamePho="http://image.xcbobo.com";
+        }else{
+            ymname="http://www.xiuktv.com";
+            ymnamePho="http://www.xiuktv.com";
+        }
+
+
+        //请求封面图
+        //images/anchoranzhuo.png
+        
+     	   var bannerUrl=ymname+"/xcbb_web/h5Activity/anchor/head/photo?uid="+parameter().zid;
+       
+       
+        //获取相册列表的第一张图为封面
+        $.ajax({
+            type:"get",
+            url:bannerUrl,
+            dataType:"json",
+            success:function(data){
+                debugger;
+                //选取家族的表格数据
+                if(data.success){
+                    var fmbanner=data.img;
+                  
+                    $("#video1").attr("poster",fmbanner);
+                }
+
+
+
+
+
+
+            }
+        })
+
+
+
+
+        //获取昵称
+        var name=decodeURI(parameter().name);
+        $("title").html(name+'直播间');
+        /*判定是安卓还是ios加载下载链接*/
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        function is_weixn(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        /*在分享的时候,容易把anzhuozb.html分享出去,此时在本页面需要再添加一个逻辑,在打开的一瞬间,
+         进行判断:
+         1是安卓微信,是就让本页面显示,
+         2不是就让重新跳转到window.location.href="indexStart.html?zid="+zid+"&uid="+uid+"&name="+name+"&type="+type+"&ym="+ym;
+
+         */
+        
+
+       if(is_weixn()&&!isiOS){
+            $("body").show();
+        }else{
+            window.location.href="indexStart.html?zid="+parameter().zid+"&uid="+parameter().uid+"&name="+parameter().name+"&type="+parameter().type+"&ym="+parameter().ym;
+        }
+      
+        if(!isiOS){
+            // downHref=ymname+"/xcbb_web/resources/download/anzhuo.apk";
+            downHref="http://a.app.qq.com/o/simple.jsp?pkgname=com.prsoft.xcshow&ckey=CK1365767037332";
+        }else{
+            downHref="https://itunes.apple.com/cn/app/id1191416714";
+
+        }
+
+        //  $("#startFmInR").attr("href",downHref);
+        //  $("#downButton").attr("href",downHref);
+        //从原生那里获取热门服务列表的相关参数,从网址上获取
+        var zid=parameter().zid;
+        var uid=parameter().uid;
+        var type=parameter().type;
+        var name=decodeURI(parameter().name);
+        var strUrl=ymname+"/xcbb_web/h5Activity/getSharePageInfo?zid="+zid+"&uid="+uid+"&type="+type;
+        //var rtmburl=parameter().rtmburl;//从第一个页面进入到这个安卓微信的页面时候网址上带有一个视频流.
+        var ovideo1=document.getElementById("video1");
+
+        //poster="images/anchor.jpg"
+        /*监听点击事件.zt*/
+        var flagone=true;
+        if(flagone){
+
+        }
+        //点击下载按钮的时候,跳转到应用商店
+        $("#startFmInR").click(function(){
+            window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.prsoft.xcshow&ckey=CK1365767037332";
+            return false;
+        });
+        $("#downButton").click(function(){
+            window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=com.prsoft.xcshow&ckey=CK1365767037332";
+            return false;
+        });
+
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: strUrl,
+            success:function(data){
+                var islive = data.isLive;
+                if(islive){
+                    var rtmburl=data.rtmburl;
+                    $("#video1").attr("src",rtmburl);
+                }
+
+            }
+        })
+
+        //点击暂停按钮的时候先去请求ajax
+        $("#pause").click(function(){
+        	ovideo1.play();
+            $("#video1").attr("poster","")
+            $("#pause").hide();
+            $(".giftbox").show();
+            $("#chatbox").show();
+            livecallback()
+        })
+        function livecallback(){
+        	$.ajax({
+                type: "get",
+                dataType: "json",
+                url: strUrl,
+                success:function(data){
+                    var islive = data.isLive;
+                    if(islive){
+
+                        //一旦点击,就先去请求视频播放接口
+                       $("#video1").attr("poster","")
+			            $("#pause").hide();
+			            $(".giftbox").show();
+			            $("#chatbox").show();
+                        bfcallback(data);
+                    }else{
+                        window.location.href="indexEnd.html?zid="+zid+"&uid="+uid+"&name="+name+"&type="+type+"&ym="+parameter().ym;
+                    }
+
+                }
+            })
+        }
+
+        
+       
+
+        //播放中的样式和事件
+        function bfcallback(data){
+            $(".blackMb").hide();
+            /*------------------------播放中的逻辑start-----------------------------------*/
+            document.getElementById("video1").play();
+            $("#video1").attr("poster","");
+            $(".startOver").show();
+            /*--------------------css3 动画的start-----------------------------------------------*/
+            /*控制css3播放的样式动画*/
+            window.setTimeout(function(){
+                $('.sliwuOver').addClass('start1');
+            },500)
+            /*滚动和礼物*/
+            var time3=window.setTimeout(function(){
+                $('.comments').show(500,callback);
+            },500);
+            function callback(){
+                var n=12;var flg=true;
+                if(flg){
+                    var time2= window.setInterval(function(){
+                        n+=10;
+                        /*这里的100是滚动条可以滚动的最大距离,达到这个值得话就让其等于0*/
+                        if(n>=100){
+                            n=0;
+                        }
+                        $('.comments').scrollTop(n);
+                    },1000)
+                }
+            }
+            /*循环播放礼物*/
+            var time1= window.setInterval(function(){
+                $(".sliwuOver ").removeClass("start1");
+                window.setTimeout(function(){
+                    $(".sliwuOver ").addClass("start1");
+                },500)
+            },17000)
+
+            /*--------------------css3 动画的end-----------------------------------------------*/
+
+            /*
+             * 头像列表服务
+             * 头像src:$scope.headlistData
+             * 头像底部的钻:
+             * */
+            //单个头像
+            var headUrl= ymnamePho+"/PubImgSour/"+ data.photo+".png";
+            $(".zbHead>img").attr("src",headUrl);
+            //周星
+            $(".lovesInBottom ").html("第1名");
+            //人名
+            $(".zbName").html(name);
+
+            var str="";
+            for(var i=20;i>0;i--){
+                var cur={};
+                cur.src="images/head"+i+".png";
+                cur.zjsrc="images/m"+i+"@2x.png";
+                if(i==20){
+                    cur.src=headUrl;
+                    cur.zjsrc="images/m1@2x.png";
+                }
+
+                var curheadurl=cur.src;
+                var curheadzurl=cur.zjsrc;
+                str+="<li><img src='"+curheadurl+"'><div class='zlis'> <img src='"+curheadzurl+"' alt='等级'/></div></li>"
+            }
+            $(".headIconsIn").html(str);
+            //点击聊天和礼物框,出现下载
+            function downHrefs (e){
+                //var target=e.target;
+                /* e.cancelable=true;
+                 e.isDefaultPrevented();*/
+                $("#downZhe").show();
+                $(".downloadbox").show();
+            }
+            $("#chatbox").click(function(e){
+                downHrefs();
+            });
+            $("#gifbut").click(function(e){
+                downHrefs();
+            });
+
+
+        }
+
+    })
+
+--></script>
+
+
+
+
+

@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/getuser",
+    "pages/index/index",   
+    "pages/index/index_xq"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小草播播",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true,
+    "backgroundColorBottom":"#1d1d1d"
+  }
+}

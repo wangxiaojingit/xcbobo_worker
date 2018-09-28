@@ -1,0 +1,6 @@
+<!--pages/index/getuser.wxml-->
+
+<image class='logo' src='../image/logo.jpg'></image>
+<text class='name_message'>需要使用您的微信昵称和头像</text>
+
+<button class='get_message' open-type="getUserInfo" lang="zh_CN"  wx:if="{{btton_show == true}}" bindgetuserinfo="onGotUserInfo">获取用户信息</button>

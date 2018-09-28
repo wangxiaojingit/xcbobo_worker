@@ -1,0 +1,187 @@
+#main{width:100%;height:100%;position:relative;}
+.fc{width:100%;height:100%;position:absolute;left:0px;top:0px;z-index:100;}
+/*浮层的底部板块*/
+.fcBottom{
+    position:fixed;
+    bottom: 0rem;
+    left: 0rem;
+    width:100%;
+    height:2rem;
+
+}
+.fcBottomTop,.fcBottomBottom{height:1rem;}
+.fcBottomTop .fcBottomTopLeft{float:left;width:2.8rem;height:0.8rem;line-height:0.8rem;text-indent:0.36rem;border-radius:0.3rem;
+    background:rgba(238,238,238,.3);font-size:0.3rem;margin-left:0.2rem;color:#fff;}
+
+.fcBottomTopRight{float:right;margin-right:0.2rem;}
+.fcBottomTopRight li{width:0.82rem;height:0.82rem;float:left;margin-left:0.25rem;}
+.fcBottomTopRight li:nth-child(1){background:url("../images/lw1.png") no-repeat;background-size:cover;}
+.fcBottomTopRight li:nth-child(2){background:url("../images/share.png") no-repeat;background-size:cover;}
+.fcBottomTop .fcBottomTopRight{float:right;}
+.fcBottomBottom{height:1rem;background:#000;width:100%;}
+.downIcon {
+    width:2.37rem;
+    height:.68rem;
+    float:left;
+    background:url("../images/logo@2x.png");
+    background-size:cover;
+    margin-top: 0.15rem;
+}
+
+.downButton{
+    float:right;
+    width: 2.04rem;
+    height: 0.6rem;
+    border-radius:0.1rem;
+    text-align:center;
+    margin-right:10px;
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    background:url("../images/xz@2x.png") center center no-repeat;
+    background-size:cover;
+}
+
+/*浮层除了底部的板块*/
+.fcTopbox>div{position:absolute;left:0rem;border:1px solid pink;}
+.fcTopbox .head{width:100%;color:#fff;}
+.zbphotoes{height:0.86rem;top: 1.5rem;font-size:16px;display:none;}
+
+/*礼物的板块*/
+.gifbox{height:2.5rem;width:4.76rem;left:0.2rem;top:2.6rem;}
+.whoname{height:0.6rem;bottom: 4.5rem;}
+.chatBox{height:2.1rem;bottom: 2.3rem;width:5rem;overflow-y:auto;}
+
+/*头部的top层*/
+.headTop{margin-top:10px;}
+.headTop>div{float:left;}
+.headToplRight{margin-left: 5px;}
+.headToplLeft{margin-left:0.2rem;width:0.6rem;height:0.6rem;border:2px solid gold;border-radius:50%;
+    background:url("../images/head12.png") center center no-repeat;background-size:cover;box-sizing:border-box;float:left;}
+.headToplRight{height:0.6rem;font-size:0.24rem;float:left;}
+.headBottomLeftT{margin-top:0.05rem;}
+.headTopCenter {
+    float: left;
+    width: 0.72rem;
+    height: 0.4rem;
+    margin-top: 0.1rem;
+    z-index: 10;
+    margin-left: 0.15rem;
+    background: url("../images/gz@2x.png") no-repeat center center;
+    background-size: cover;
+}
+
+.headTop .headTopRight{float:right;}
+.headIcon{float:left;
+    width: 0.66rem;
+    height: 0.66rem;
+    background: url("../images/headI.png") no-repeat;
+    background-size: cover;
+    margin-right: 0.08rem;}
+.headIcons{float:left;width:13.8rem;height:0.6rem;overflow-X:hidden;}
+.headIcons li{
+    float:left;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-right: 0.09rem;
+    background: url('../images/head.png') no-repeat;
+    background-size: cover;
+    float: left;
+    border-radius: 50%;
+    border: 1px solid gold;
+}
+.headIconsBox{
+    width: 2.8rem;
+    height: 0.6rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right:.2rem;
+}
+.headBottom{font-size:0.24rem;margin-top: 0.15rem;}
+.headBottom>div{width:1.9rem;height:0.7rem; border-radius: 0.3rem;background:rgba(0,0,0,.1);}
+.headBottomLeft{float:left;margin-left:0.2rem;}
+.headBottomLeft>div{margin-left:0.2rem;}
+.headBottomRight{float:right;margin-right:0.2rem;line-height:0.65rem;}
+/*阳光等级图标*/
+.sundj{width:.36rem;height:0.19rem;}
+.sundj>img{width:100%;}
+.headBottomLeftT>span{float:left;}
+.headBottomRight>span:nth-child(1){margin-left:0.2rem;}
+
+/*进入直播间*/
+.whoname{font-size: 0.24rem;}
+.whoname>span{float:left;margin-right:0.1rem;}
+.name{color:#faf082;}
+.comIn{color:#fff;}
+.djIcon{width:0.58rem;height:0.33rem;
+    background:url("../images/chat2@4x.png") center center no-repeat;
+    background-size:cover;text-indent:0.28rem;
+    line-height:0.33rem;
+    color:#fff;
+}
+.djIcon>img{width:100%;}
+
+/*礼物板块*/
+.chatBox{position:relative;font-size:0.24rem;overflow-y:auto;width:100%;}
+.comments{position:absolute;bottom:0px;left:0px;width:100%;z-index: 9999;width:100%;}
+.comments>li{margin-bottom:5px;}
+
+/*.chatBoxIn{width:100%;position:relative;}*/
+/*
+  聊天板块的等级
+
+*/
+
+/*聊天板块*/
+.chatIcon{/*background-image: url("../images/chat3@2x.png");*//*width: 0.56rem;*/
+    height: 0.3rem;
+    line-height: 0.3rem;
+    text-indent: 0.25rem;
+    font-size: 0.20rem;
+    color: #fff;
+    background-size:cover;
+    margin-right:0.1rem;
+    margin-top: 2px;
+}
+.comments>li>span{float:left;}
+.chatName{color:#f5e6c8;}
+.chatContent{color:#78fafa;}
+.lsGif{width:4.7rem;height:1rem;background:url("../images/cheng@2x.png") left center no-repeat;background-size:cover;}
+.lsGifImg{width:0.6rem;height:0.6rem;margin-top:0.1rem;}
+.lsGifImg>img{width:100%;display: block;}
+.lsGif>div{float:left;}
+.lsGifHead{width:0.9rem;height:0.9rem;border-radius:50%;overflow:hidden;}
+.lsGifHead>img{width:100%;float:left;}
+.lsGifMessage{width:1.84rem;margin-left:0.16rem;}
+.lsGifMessageName{font-size:0.28rem;margin-top: 0.05rem;color:#fff;}
+.lsGifMessageName2{font-size:0.24rem;color:#fbff93;}
+.giflsNum{font-size:0.32rem;color:#fff;}
+.giflsText{font-size:0.24rem;color:#f6d33d;}
+.gifls{margin-left:0.1rem;}
+.lsGif{position:absolute;}
+.gifNum{position:absolute;right:0px;font-size:0.28rem;bottom: 0.3rem;color:#f6d33d;}
+.gifbox .notop{top:1.5rem;}
+.notop .gifNum{right: 0.6rem;bottom: 0.4rem;}
+
+/*下载提示框和黑色遮罩*/
+.blackbg{width:100%;height:100%;background:rgba(0,0,0,.5);position:absolute;left:0px;top:0px;z-index:100000;display:none;}
+.tipbox{
+    width: 5.39rem;
+    height: 4rem;
+    background: url("../images/downbg.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -2.7rem;
+    margin-top: -2rem;
+    z-index:100001;
+}
+#downButton{
+    width: 4rem;
+    height: 0.8rem;
+    background: url("../images/downbutton@2x.png") no-repeat;
+    background-size: cover;
+    bottom: .5rem;
+    left: .7rem;
+    position: absolute;
+}

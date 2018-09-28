@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title id="title">小草话题讨论区</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<style>
+		 .box{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			display: none;
+			background: #ccc;
+			opacity: 0.8;
+		}
+		.box img{
+			width: 200px;
+			position: absolute;
+			left: 50%;
+			top: 20%;
+			margin-left: -100px;
+		}
+		.box p{
+			position: absolute;
+			left: 10%;
+			top: 60%;
+			width: 80%;
+			text-align: center;
+			font-size: 12px;
+		} 
+		#span{
+			position: absolute;
+			right: 0;
+			top: 0;
+			display: block;
+			width: 20px;
+			height: 20px;
+			border-radius: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">	
+		<div class="page" id="page">
+			<header class="header">
+				<h2>小草话题讨论区</h2>
+			</header>
+			<section class="section">
+				<p><input type="text" placeholder="请输入任意文字点击确认即可" value="" id="txt"></p>
+				<a href="#" id="test">进入话题</a>
+			</section>
+		</div>	
+
+	</div>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

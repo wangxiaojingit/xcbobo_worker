@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" contect="我在参加小草直播官方砍价，砍到0元就能免费拿啦，帮我砍一下吧" />
+    <meta name="format-detection" content="telephone=no, email=no"/>
+   
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="css/head.css">
+    <link rel="stylesheet" href="css/gift.css">
+    <link rel="stylesheet" href="css/footer.css"> 
+    <link rel="stylesheet" href="css/blockshare.css">
+    <style  type="text/css">
+      [v-cloak] {
+		display: none;!important；
+	  }
+    </style>
+    <title>免费礼物随便拿，只需进来砍个价！</title>
+    <script src="js/base/resize.js"></script>
+</head>
+<body>
+    <div style="overflow:hidden;width:0;height:0;"><img width="200" height="200" src="images/shareIcon.jpg" /></div>
+  <!--<div id="main" v-if="kanjiaInfo" v-cloak> --> 
+     <div id="main"  v-cloak>
+           
+            <!-- mymessage -->
+            <div class="myMessage">
+                <div class="myhead"><img v-bind:src="headimgurl" alt="" /></div>
+                <p class="myname" v-if="kanjiaInfo" v-cloak>我是<i v-text="kanjiaInfo.nick"></i></p>
+                <p class="myname2">发现了好玩的礼物,砍价0元拿走</p>
+                <div class="message" v-if="giftInfo.length" v-for="item in giftInfo" v-cloak>
+                    <div class="MessLeft">
+                        <img v-bind:src="imgurl(item)"  alt="" class="messageGood" />
+                    </div>
+                    <div class="Messright">
+                        <p class="MessNamge" >[{{item.goods_name}}]<span style="width:5px;"></span>限量礼物赶紧来抢!</p>
+                        <p class="MessNum" style="font-size:14px;">{{kanjia_count | peopleFilter}}人</p>
+                        <p class="Messzige" style="font-size:14px;">0元拿到</p>
+                        <span class="oldmoney" style="font-size:14px;">原价{{((item.gift_price)/100).toFixed(2)}}元</span>
+                    </div>
+                </div>
+            </div>
+            <!--cutMoney 已砍多少元 -->
+            <div class="cutMoney" v-cloak v-show="Number(kanjiaInfo.gift_price)>Number(kanjiaInfo.current_price)">已砍<span style="color:#edd000">{{((kanjiaInfo.current_price)/100).toFixed(2)}}</span>元还差<span style="color:#edd000">{{((kanjiaInfo.gift_price-(kanjiaInfo.current_price))/100).toFixed(2)}}</span>元</div>
+            <div class="cutMoney" v-cloak v-show="Number(kanjiaInfo.gift_price)<=Number(kanjiaInfo.current_price)">已砍<span style="color:#edd000">{{((kanjiaInfo.current_price)/100).toFixed(2)}}</span>元,恭喜砍价成功!</div>
+            <!-- 呼唤好友砍一刀app内 -->
+            <a  href="javascript:;" class="frendCut" @click="shareshow()">呼唤好友砍一刀</a>
+           
+            <div class="cuttime" >还剩{{djs}}过期,快来砍价吧!</div>
+            <div class="overdue" style="font-size:12px">很遗憾,砍价超过24小时已经过期了~</div>
+            <div class="cutPepleBox">
+                <div class="title" >超砍群</div>
+                <ul class="cutPepleLists" v-cloak v-if="kanjia_record.length">
+                  <li class="clearfix" v-for="item in kanjia_record">
+                      <div class="left">
+                          <div class="headimg">
+                              <!-- 第三方 -->
+                                 <img v-cloak v-if="item.type==1" v-bind:src="item.photo" alt=""/> 
+                              <!-- app -->
+                                <img v-cloak v-if="item.type==0" v-bind:src="appurl(item.photo)" alt=""/>
+                          </div>
+                          <div class="leftRight">
+                              <span class="nick" v-text="item.nick"></span>
+                              <span class="khao">一辩雌雄</span>
+                          </div>
+                        
+                      </div>
+                      <div class="right">
+                          <div class="avtor">
+                               <img src="images/dao.png" alt="" />
+                          </div>
+                          <div class="cutMoney" >砍掉了{{((item.count)/100).toFixed(2)}}元</div>
+                      </div>
+                  </li>
+                </ul>
+            </div>
+            <!-- 我的砍价提示入口 -->
+            <div id="myGoods2" @click="toMyGoodsPage">
+              <div class="head2"><img v-bind:src="headimgurl" /></div>
+              <div class="headText2"><span>我的砍价</span><span class="red" style="margin-left:5px;" >({{products_myNum}})</span></div>
+            </div>
+            <!-- 分享view -->
+            <div class="blockShare" @click="closeShare">
+                    <div class="shareContent" style="width:100%">
+                       <!--  <p class="shareText">首刀砍掉<span>88.88</span>元,还差<span>281</span>元免费拿,分享还能再补一刀,快分享给好友帮你砍价吧!</p> -->
+                        <div class="shareBottom">
+                            <div class="icons" @click.stop="share(2)">
+                                <div class="wx" >
+                                    
+                                </div>
+                            </div>
+                            <div class="shareclose" @click="closeShare">取消</div>
+                        </div>
+                    </div>
+             </div>
+        
+          <!-- 分享出去之后纯h5的分享提示 -->
+    <div class="block" @click="closeblock6">
+        <div class="tipshare">右上角可以分享吆!</div>
+    </div>
+    <!-- web分享点击呼唤好友砍一刀出现的界面 -->
+    <div class="weboverBlock" >
+        <div class="status1" >
+          <div class="close" @click="close('status1')"></div>
+          <p >非常感谢!已经疯狂砍掉<span style="color:gold">{{(current_price/100).toFixed(2)}}</span>元,已降至<span style="color:gold">{{(current_price/gift_price).toFixed(2)}}</span>折</p>
+          <p style="font-size:14px;">下载小草app还可再降<span style="color:gold">200元</span></p>
+          <div class="bottom">
+            <a v-bind:href="downHref" class="downapp" @click="downapp">下载小草直播</a><div class="webclose" @click="webclose">我也要免费拿礼物</div> 
+          </div>
+          
+       </div>
+      
+       <div class="status2" >
+       <div class="close" @click="close('status2')"></div>
+       <!--  ,已降至{{(current_price/gift_price).toFixed(2)}}折-->
+          <p >我的天哪,已经疯狂砍掉{{(current_price/100).toFixed}}元,已降至{{(current_price/gift_price).toFixed(2)}}折</p>
+          <p style="font-size:14px;">拿走了免费礼物</p>
+          <div class="bottom">
+            <a v-bind:href="downHref" class="downapp" @click="downapp">下载小草直播</a><div class="webclose" @click="webclose">我也要免费拿礼物</div> 
+          </div>
+          
+       </div>
+        <div class="status3" >
+          <p id="bargin_false">打开的姿势好像不对,去app试试吧!</p>
+         
+          <div class="bottom">
+            <div class="webclose" @click="closebtn" style="border-right: 1px solid #513c99;">留下</div> <a v-bind:href="downHref" class="downapp" @click="downapp">打开小草直播</a>
+          </div>
+          
+       </div>
+       <!-- 商品过期 -->
+       <div class="status4">
+          <p>打开小草直播,一起来割草!</p>
+          <p>0元礼物免费拿~</p>
+          <div class="bottom">
+            <div class="webclose" @click="webclosestatus4" style="border-right:1px solid #513c99;border-left:none ">取消</div> <a v-bind:href="downHref" class="downapp" @click="downapp">打开小草直播</a>
+          </div>
+
+       </div> 
+       <!-- 商品过期结束 -->
+
+    </div>
+
+    </div>
+
+
+</body>
+</html>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/base/jquery-1.7.2.min.js"></script>
+<script src="js/base/isPhone.js"></script>
+<script src="js/base/vue.min.js"></script>
+<script src="js/base/axios.js"></script>
+<script src="js/base/prefixfree.min.js"></script>
+<script src="js/message3.js?v=3.0"></script>

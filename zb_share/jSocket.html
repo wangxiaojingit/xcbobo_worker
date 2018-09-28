@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/swfobject.js" type="text/javascript"></script>
+    <!--<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>-->
+    <script type="text/javascript" src="js/jsocket.js"></script>
+    <script type="text/javascript" src="js/jsocket.advanced.js"></script>
+    <script type="text/javascript" src="js/WebSocket-wrapper.js"></script>
+</head>
+<body>
+<div id="socket"></div>
+
+/*if('WebSocket' in window){
+// connect('ws://localhost:8181/service');
+// connect("ws://"+lbs+":"+lbsPort+"/service");
+connect("ws://"+lbs+":"+lbsPort);
+}
+function connect(host) {
+var ws = new WebSocket(host);
+ws.onopen = function () {
+alert('connected');
+ws.send("test1234");
+};
+ws.onmessage = function (evt) {
+alert('reveived data:'+evt.data);
+};
+ws.onclose = function () {
+alert('socket closed');
+};
+};*/
+
+</body>
+</html>
+<script type="text/javascript">
+    var lbs="47.93.118.164";
+    var lbsPort = 3001;
+   
+    // host we are connecting to
+    var host = lbs;
+    // port we are connecting on
+    var port = lbsPort;
+    // host we are connecting to
+
+
+        
+        var socket = new jSocket();
+        
+        // when the socket is added the to document 
+        socket.onready = function(){
+                socket.connect(host,port);              
+        }
+        
+        // connection attempt finished
+        socket.onconnect = function(success){
+                if(success){
+                        // send something to the socket
+                        socket.send('hello world');             
+                }else{
+                        alert('connection to the server could not be estabilished');            
+                }       
+        }
+        socket.ondata = function(data){
+                alert('received from socket: '+data);   
+        }
+        
+        // setup our socket in the div with the id="socket"
+        socket.setup('#socket');        
+</script>
+
+

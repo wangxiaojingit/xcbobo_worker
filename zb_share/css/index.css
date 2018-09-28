@@ -1,0 +1,875 @@
+*{margin:0;padding:0;}
+html{font-size:100px;font-family: 'PingFang SC Medium',"Microsoft YaHei","Helvetica Neue",Helvetica,STHeiTi;}
+html,body{width:100%;height:100%;color:#fff;font-size:0.12rem;}
+ul,ol,li{list-style:none;}
+a{text-decoration: none;}
+.clearfix:before, .clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+    overflow:hidden;
+}
+.clearfix{
+    *zoom:1;
+}
+#main{position:relative;}
+
+/*最初开始的处于暂停的状态*/
+
+  #startFm{width:100%;height:100%;background:url("../images/anchor.jpg");background-size:cover;position:relative;}
+        .startFmIn{width:100%;height:1rem;background:#000;padding:0 .15rem;position:absolute;left:0px;bottom:0px;z-index:10;}
+        .startFmIn #startFmInL{float:left;
+            width: 2.4rem;
+            height: .68rem;
+            float: left;
+            background: url("../images/logo@2x.png");
+            background-size: cover;
+            margin-top: .15rem;}
+        .startFmIn #startFmInR{float:right;    float: right;
+            width: 2.04rem;
+            height: 0.62rem;
+            background: url("../images/xz@2x.png") no-repeat center center;
+            color: #fff;
+            line-height: 0.6rem;
+            border-radius: 0.1rem;
+            text-align: center;
+            margin-right: 10px;
+            margin-top: 0.2rem;
+            font-size: 0.24rem;
+            background-size: cover;}
+        .blackMb{position:absolute;left:0px;top:0px;width:100%;height:100%;background:rgba(0,0,0,.3);}
+        .blackMb .zt{width:1.2rem;height:1.2rem;position:absolute;left:50%;top:50%;margin-left:-.6rem;margin-top:-.6rem;background:url("../images/pause.png");
+            background-size:cover;}
+
+
+/*直播板块*/
+#zbbox{
+    height:100%;
+    /*background:url("../images/anchor.jpg") no-repeat;*/
+    position:relative;
+    background-size:cover;
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index:9999;
+}
+.mainIn{position:relative;}
+#fc{position:absolute;left:0;top:10px;z-index:20;width:100%;}
+.zbMessage{
+    float:left;
+    margin-left:10px;
+    height:0.7rem;
+    z-index:10;
+}
+.zbHead,.zbId{float:left;}
+.zbHead{width:0.6rem;height:0.6rem;border-radius:50%;border: 1px solid gold;position:relative;    margin-top: 0.02rem;}
+.zbHead>img{width:100%;border-radius:50%;}
+.zbId{margin-left:5px;font-size:0.24rem;}
+.zbName{color:#fff; }
+.zbFocus{
+    float:left;
+    width:0.72rem;
+    height:0.4rem;
+    margin-top: 0.1rem;
+    z-index:10;
+    margin-left:0.15rem;
+    background:url("../images/gz@2x.png") no-repeat center center;
+    background-size:cover;
+}
+/*顶部头像等信息*/
+.headMessage{height:0.7rem;}
+/*头像列表*/
+.headI{
+    width:0.66rem;
+    height:0.66rem;
+    background:url("../images/headI.png") no-repeat;
+    background-size:cover;
+    margin-right:0.08rem;
+}
+.gzNumber{color:#b6c4e3;}
+.headIcons,.headI{float:left; }
+.headbox{
+    float:right;
+    margin-right: 10px;
+}
+.headIcons{width:2.8rem;height:0.6rem;overflow-x:auto;overflow-y: hidden;}
+.headIconsIn{width:13.8rem;height:0.6rem;}
+.headIconsIn li{position:relative;}
+.headIcons li{
+    width:0.6rem;
+    height:0.6rem;
+    margin-right:0.09rem;
+    background:url('../images/head.png') no-repeat;
+    background-size:cover;
+    float:left;
+    border-radius:50%;
+    border: 1px solid gold;
+}
+.headIcons li img{width:100%;border-radius:50%;}
+
+.zuxs{position:absolute; right: -0rem;bottom: -.03rem;background:url(../images/m1@2x.png);width:.2rem;height:.2rem;background-size:cover;}
+.zlis {position:absolute; right: -0.07rem;bottom: 0.02rem;/*background:url(../images/m1@2x.png);*/width:.2rem;height:.2rem;background-size:cover;}
+.zlis img{width:100%;}
+/*关注多少名*/
+.loves{width: 1.2rem;height: 1.2rem;position:absolute;right:10px;top:2rem;border-radius:50%;background-color: rgba(0,0,0,.1);}
+.lovesInTop{width:.53rem;height: .42rem;background:url("../images/love1.png") no-repeat;background-size:cover;margin: 0.15rem auto;
+    margin-bottom: 0;font-size:.2rem;}
+.lovesInBottom{text-align:center;opacity: .7;}
+.lovesIn{width:0.7rem;height:0.7rem;position:absolute;left:50%;top:0;margin-left:-0.25rem;}
+.lovesIn img{width:100%;}
+/*评论的板块*/
+marquee{margin-top:0.5rem;}
+.comments{
+    width:4.94rem;
+    height: 3rem;
+    overflow:hidden;
+    overflow-y: auto;
+}
+.comments li{
+    color: green;
+}
+.plbox{height:3rem;position:absolute;left:10px;bottom:1.3rem;z-index:12;}
+
+/*底部聊天*/
+.chat{height:0.8rem;width:100%;box-sizing:border-box;margin-bottom: 0.2rem;position:relative;}
+.chatbox{float:left;margin-left:0.2rem;width:2.8rem;height:0.8rem;line-height:0.8rem;text-indent:0.36rem;border-radius:0.3rem;
+    background:rgba(238,238,238,.3);font-size:0.3rem;}
+.giftbox{float:right;margin-right:0.2rem;}
+.giftbox li{width:0.82rem;height:0.82rem;float:left;margin-left:0.25rem;}
+.giftbox li:nth-child(1){background:url("../images/lw1.png") no-repeat;background-size:cover;}
+.giftbox li:nth-child(2){background:url("../images/share.png") no-repeat;background-size:cover;}
+/*底部下载小草*/
+.download{height:1rem;background:#000;box-sizing:border-box;width:100%;padding:0 0.15rem;}
+.download span {
+    width: 2.4rem;
+    height: .68rem;
+    float: left;
+    background: url("../images/logo@2x.png");
+    background-size: cover;
+    margin-top: .15rem;
+}
+.download a,.overfooter>a{
+    float:right;
+    width: 2.04rem;
+    height: 0.62rem;
+    background:url("../images/xz@2x.png") no-repeat center center;
+    color:#fff;
+    line-height:0.6rem;
+    border-radius:0.1rem;
+    text-align:center;
+   
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    background-size:cover;
+    
+}
+
+/*聊天内容板块*/
+.comments{display:none;}
+/*.active.active{display:block;opacity:1;transition: all 1s linear 3s}*/
+.comments li{line-height:0.5rem;}
+.comments li>span{float:left;}
+.comments .chatIcon{width:0.56rem;height:0.3rem;line-height:0.3rem;text-indent: 0.25rem;font-size:0.20rem;color:#fff;margin-top: 0.05rem;}
+.comments li .chatIcon{background:url("../images/chat1@2x.png") no-repeat center center;background-size:cover;}
+.comments li:nth-child(2n) .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:nth-child(1) .chatIcon{background:url("../images/chat1@2x.png") no-repeat center center;background-size:cover;}
+.comments li:nth-child(2) .chatIcon{background-image:url("../images/chat2@2x.png") }
+.comments li:nth-child(3) .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:nth-child(2n) .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:last-child .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:nth-child(2n+1) .chatIcon{background-image:url("../images/chat2@2x.png") }
+.comments li:nth-child(3n+2) .chatIcon{background-image:url("../images/chat1@2x.png") }
+
+
+.chatName{color:#f5e6c8;margin-left:0.1rem;font-size:0.24rem;}
+.chatContent{text-indent:0.2rem;color:#f0f0f0;font-size:0.24rem;}
+/*#zhezhao{height:100%;width:100%;background:rgba(0,0,0,.3);position:fixed;z-index:888;left:0px;top:0px;height:0px;}*/
+/*下载板块的样式*/
+.downloadbox{
+    width:5.39rem;
+    height:4rem;
+    background:url("../images/downbg.png") no-repeat;
+    background-size:cover;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-2.7rem;
+    margin-top:-2rem;
+    z-index:99000;
+    display:none;
+}
+
+.downButton{
+    width:4rem;
+    height:0.8rem;
+    background:url("../images/downbutton@2x.png") no-repeat;
+    background-size:cover;
+    bottom:.5rem;
+    left:.7rem;
+    position:absolute;
+    
+}
+.closeButton{position:absolute;
+    width:1.4rem;
+    height:0.6rem;
+    background:url("../images/downbutton@2x.png") no-repeat;
+    background-size:cover;
+    bottom:.5rem;
+    left:3rem;
+    line-height:.6rem;
+    text-align:center;
+}
+
+/*被设为管理员的样式*/
+.admin{color:#78fafa;text-indent: 0.2rem;font-size: 0.24rem;}
+.it{color:#82f082;}
+.gifshowbox{
+    width:7.5rem;
+    height:3rem;
+    margin-top:4.5rem;
+    position: relative;
+}
+.gifIn{width:4.08rem;height:0.94rem;}
+.gifIn{background:url("../images/lan@2x.png") center center no-repeat;background-size:cover;position: absolute;}
+/*送礼进场*/
+.gifshowbox .gifInBox1 .gifIn:nth-child(1){
+    background-image:url("../images/lan@2x.png");
+    -webkit-animation:bounceInLeft 3s ease-in-out 1s;
+    animation:bounceInLeft 3s ease-in-out 1s;
+}
+.gifshowbox .gifIn:nth-child(2){background-image:url("../images/lv@2x.png");}
+.gifshowbox .gifIn:nth-child(3){background-image:url("../images/c@2x.png");}
+.gifshowbox .gifIn:nth-child(4){background-image:url("../images/z@2x.png");}
+
+/*数字变大*/
+.gifshowbox .gifInBox1 .gifIn:nth-child(1) .showgifNum{background-size:cover;
+    -webkit-animation:scalebig .2s ease-in 4s;
+    animation:scalebig .2s ease-in 4s;
+    background-image:url("../images/s1@2x.png");
+}
+/*第一个礼物条送完之后消失*/
+.gifInBox1{
+     position:absolute;
+     left:10px;
+     top:0px;
+     width: 4.08rem;
+     height: 0.94rem;
+     margin-bottom: 0.1rem;
+     -webkit-animation:ahide .2s ease-in 5s forwards;
+     animation:ahide .2s ease-in 5s forwards;
+ }
+/*第二个礼物条送完之后消失*/
+ /*第二个礼物进场*/
+.gifInBox2{
+    position:absolute;
+    left:10px;
+    top:1rem;
+    width: 4.08rem;
+    height: 0.94rem;
+   -webkit-animation:ahide .2s ease-in 12s forwards;
+    animation:ahide .2s ease-in 12s forwards;
+}
+#fc .gifshowbox .gifInBox2 .gifIn{
+    background-image:url("../images/lv@2x.png");
+    -webkit-animation:bounceInLeft 3s ease-in-out 8s;
+    animation:bounceInLeft 3s ease-in-out 8s;
+}
+
+#fc .gifshowbox .gifInBox2 .gifIn .showgifNum{
+    background-size:cover;
+    -webkit-animation:scalebig .2s ease-in 11s;
+    animation:scalebig .2s ease-in 11s;
+    background-image:url("../images/s2@2x.png");
+}
+
+/*第三个礼物进场*/
+.gifInBox3{
+    position:absolute;
+    left:10px;
+    top:1.3rem;
+    width: 4.08rem;
+    height: 0.94rem;
+    -webkit-animation:ahide .2s ease-in 18s forwards;
+    animation:ahide .2s ease-in 12s forwards;
+}
+#fc .gifshowbox .gifInBox3 .gifIn{
+    background-image:url("../images/lv@2x.png");
+    -webkit-animation:bounceInLeft 3s ease-in-out 12s;
+    animation:bounceInLeft 3s ease-in-out 12s;
+}
+
+#fc .gifshowbox .gifInBox3 .gifIn .showgifNum{
+    background-size:cover;
+    -webkit-animation:scalebig .2s ease-in 15s;
+    animation:scalebig .2s ease-in 15s;
+    background-image:url("../images/s2@2x.png");
+}
+
+/*第四个礼物*/
+
+.gifInBox4{
+    position:absolute;
+    left:-1000px;
+    top:1rem;
+    width: 4.08rem;
+    height: 0.94rem;
+
+}
+
+.gifInBox4 .showgifNum{background:url("../images/5@2x.png") no-repeat;background-size:cover;}
+
+/*第二个礼物中的数字*/
+.showgifNum{background:url("../images/s2@2x.png") no-repeat;background-size:cover;}
+.gifInBox2 .showgifNum{background-image:url("../images/s2@2x.png");}
+.gifIn .gifInLeft{float:left;}
+.gifIn .gifInRight{position:absolute;right:-0.35rem;top:0rem;}
+.gifInLeftL{width:0.84rem;height:0.84rem;border-radius:50%;background:url("../images/headd.png") no-repeat;background-size:cover;float:left;}
+.gifInLeftR{width:1.51rem;height:0.8rem;float:left;margin-left:0.15rem;}
+.gifInLeftrT{height:0.38rem;line-height:0.38rem;}
+.gifInLeftrB{color:#fbff93;}
+.gifInRight{width:2.13rem;height:0.8rem;float:left;}
+.gifInRightL{width:0.65rem;height:0.61rem;background:url("../images/star.png") center center no-repeat;background-size:cover;margin-top:0.1rem;}
+/*.gifInRight>div{float:left;}*/
+.gifInRightcT{width:0.48rem;height:0.34rem;font-size:0.3rem;color:#fff;margin-bottom:0.1rem;}
+
+.gifInRightC{margin-left:0.08rem;}
+.gifInRightcB{color:#f6eaba;}
+.gifInRightR{width:0.51rem;height:0.64rem;position:relative;margin-left: 0.1rem;}
+.cheng{float:left;}
+.cheng{margin-top:0.43rem;}
+.showgifNum{margin-top:0.43rem;font-size:0.32rem;position:absolute;left:0.25rem;top:0rem;font-size:40rem;}
+
+.showgifNum{position:absolute;left:0.2rem;top: -0.04rem;width: 0.27rem;height: .39rem;color:#f7d640;font-size:0.28rem;font-weight:bold;    }
+.jzb{
+    position: absolute;
+    width:5.67rem;
+    height:0.56rem;
+    background:url("../images/rcbg@2x.png") no-repeat;
+    background-size:cover;
+
+    bottom: 4.2rem;
+    left:0rem;
+    -webkit-animation:fadeInLeft 1s ease-out 7s  both;
+    animation:fadeInLeft 1s ease-out 7s  both;
+}
+
+/*
+进入直播漂浮*/
+.jzb>div{float:left;}
+.jzbLeft{width:1.06rem;height:0.56rem;line-height:0.56rem;text-align:center;background:url(../images/rc@2x.png) no-repeat;background-size:cover;font-size:0.28rem;}
+.jzbCenter,.jzbRight{height:0.56rem;line-height:0.56rem;}
+.jzbCenter{color:#faf082;margin:0 0.27rem;}
+.footer{height:2rem;position: fixed;bottom:0px;left:0px;width:100%;z-index:1000;}
+
+
+/*直播结束界面*/
+.overTop{
+    height:6rem;
+    background:url("../images/mhbg.png") no-repeat center center;
+    overflow:hidden;
+    position:relative;
+    background-size: cover;
+}
+.zbOver{background:#f9f9f9;}
+
+.overTopMain{width: 4.4rem;height: 2.5rem;margin: 0.35rem auto 0 auto;}
+.overTopMain p{text-align:center;}
+.overTopMain p{text-align:center;font-size:0.28rem;color:#000;}
+.overTopMain p:nth-child(1){ font-size: 0.58rem;font-weight: bold;line-height: 0.58rem;color:#fff;letter-spacing: 2px; margin-top: 0.34rem;}
+.overTopMain p:nth-child(2),.overTopMain p:nth-child(3){width:100%;height:0.33rem;line-height:0.36rem;margin-top:0.37rem;color:#f5ebd7;text-align:center;}
+.overTopMain p:nth-child(3){margin-top:0;}
+.overTopMain p:nth-child(4){margin-top:0.47rem;color:#ffffff;}
+
+.overcTop{height:0.8rem;background:url("../images/rm.png") no-repeat center;background-size:cover;width:100%}
+.rmzb{float:left;font-size:0.24rem;color:#000;text-indent:0.06rem;}
+.more{float:right;font-size:0.24rem;color:#000;margin-right:0.06rem;}
+.overBottom{display: -webkit-flex; flex-direction: row ;justify-content:space-between;flex-wrap: wrap ;background:#8d50a1;margin-bottom:1rem;}
+.overBottom li>img{height: 4.7rem;display:block;}
+.tips{position:absolute;left:0px;bottom:0px;width:100%;height:0.94rem;background:url("../images/libg.png") center center;
+background-size:cover;
+}
+.tipsTop{height:0.48rem;width:100%;line-height:0.48rem;font-size:0.32rem;text-indent:0.2rem;color:#fff;}
+.tipsBottom{width:100%;height:0.4rem;line-height:0.4rem;font-size:0.24rem;}
+.tipsbl{float:left;margin-left:0.4rem;}
+.tipsbR{float:right;}
+.overBottom li{ 
+	width: 3.7rem;
+    height: 4.7rem;
+    margin-bottom:0.08rem;
+    position:relative;
+    overflow: hidden;
+    box-sizing:border-box;
+    }
+.overfooter>div{float:left; height:1rem;
+    float:left;
+    width:2.37rem;
+    height:.68rem;
+    float:left;
+    background:url("../images/logo@2x.png");
+    background-size:cover;
+    margin-top:.15rem;
+
+   }
+.overfooter{height:1rem;background:#000;
+   box-sizing:border-box;width:100%;position:fixed;bottom:0;left:0;
+   padding:0 0.15rem;
+}
+
+ .overHeadBox{width:100%;height:1.72rem;position:relative;}
+ .overHead{width:1rem;height:1rem;border-radius:50%;border:2px solid #e9ccce;
+    position: absolute;
+    left: 50%;
+    top: 0.68rem;
+    margin-left: -0.5rem;
+ 
+ }
+ .overHead>img{width:100%;border-radius:50%;}
+ .zbname{width:100%;height:.4rem;line-height:.4rem;text-align:center;font-size:0.28rem;margin-top:0.1rem;}
+/*
+.overBottom li:nth-child(2n+1){margin-right:0.5rem;}*/
+
+
+
+
+/*送礼物规划版*/
+.sliwuOver{width:100%;height:100%;}
+/*----------------礼物六---------------*/
+  /*礼物从左边到右边进场*/
+.gifInBox6{opacity:1;}
+.gifInBox6 .gifIn{background-image:url("../images/lan@2x.png");margin-left:-3000px;}
+.sliwuOver.start1 .gifInBox6 .gifIn{margin-left:10px;-webkit-transition:all 1s;transition:all 1s;}
+
+  /*礼物进场之后数字变大*/
+.gifInRightRt{position:absolute;width: 1rem;height: 1rem;color:gold;top: 0.25rem;right: -.5rem;}
+.sliwuOver.start1 .gifInBox6 .gifInRightRt{
+    font-size:.8rem;
+    right: -.5rem;top:-.1rem;
+    -webkit-transition:all .2s ease-in 1s;
+    transition:all .2s ease-in 1s;
+    -webkit-animation:animations .05s ease-out forwards  1.5s;
+    animation:animations .05s ease-out forwards  1.5s;
+}
+/*变大之后让礼物一整体隐藏*/
+.gifInBox6{
+    position: absolute;
+    left: 10px;
+    top: 6rem;
+    width: 4.08rem;
+    height: 0.94rem;
+}
+.sliwuOver.start1 .gifInBox6{
+    opacity:0;
+    -webkit-transition:all .3s ease-in 1.6s;
+    transition:all .3s ease-in 1.6s;
+}
+.sliwuOver .gifInRightL,.sliwuOver .gifInRightC{float:left;}
+.gifInRightRt>div{float:left;}
+
+.gifInBox6 .cheng{font-size:0.24rem;}
+.gifInBox6 .showgifNum{background:none;font-size:0.30rem;}
+
+/*----------------礼物六end---------------*/
+/*礼物五*/
+.gifInBox5 {
+    position: absolute;
+    left: 10px;
+    top: 6rem;
+    width: 4.08rem;
+    height: 0.94rem;
+    opacity:1;
+
+}
+.gifInBox5 .gifIn{margin-left:-3000px;}
+.gifInBox5 .gifInRightL{background-image:url("../images/yintao.png")}
+.gifInBox5 .gifInLeftL{background-image:url("../images/head17.png")}
+.gifInBox5 .gifIn{background-image:url("../images/zbg.png")}
+.gifInBox5 .gifInRightRt{color:#e21c48}
+
+/*礼物5进场从左到右进场*/
+.sliwuOver.start1 .gifInBox5 .gifIn{
+
+    -webkit-transform:translateX(3000px);
+    transform:translateX(3000px);
+    -webkit-transition:all 1s ease-out 2s;
+    transition:all 1s ease-out 2s;
+}
+
+/*数字变大*/
+
+.sliwuOver.start1 .gifInBox5 .gifInRightRt{
+    font-size:.8rem;
+    right: -.5rem;top:-.1rem;
+    -webkit-transition:all .2s ease-in 3s;
+    transition:all .2s ease-in 3s;
+    -webkit-animation:animations .05s ease-out forwards  3.5s;
+    animation:animations .05s ease-out forwards  3.5s;
+}
+
+/*从下向上移动*/
+.sliwuOver.start1 .gifInBox5{top:5rem;opacity:0;-webkit-transition:all 2s  3.6s;transition:all 2s  3.6s;}
+/*礼物五end*/
+
+
+
+
+/*礼物四start*/
+   /*礼物进场*/
+/*.gifInBox4{
+    left:10px;
+}*/
+.gifInBox4 {
+    width:3.89rem;
+    height:0.5rem;
+    position:absolute;
+    left:.1rem;
+    top:6rem;
+    opacity:1;
+   /* -webkit-transition:all 1s ease-in 5.6s
+    transition:all 1s ease-in 5.6s;*/
+}
+
+
+.gifInBox4 img{
+    position:absolute;
+    left:-3000px;
+    top:0px;
+
+}
+.sliwuOver.start1 .gifInBox4 img{
+    left:10px;
+    -webkit-transition:all 1s ease-in 5.6s;
+ transition:all 1s ease-in 5.6s;
+
+}
+
+/*内容出现*/
+.neirong{position:absolute;top:0px; left:0px;
+    height:0.5rem;line-height:.55rem;
+    text-indent:10px;
+    opactiy:0;
+    width:0rem;
+    overflow:hidden;
+}
+
+.sliwuOver.start1 .neirong{
+    width:3.89rem;
+    opacity:1;
+    -webkit-transition:all  2s  ease-in 6.6s;
+    transition:all  2s  ease-in 6.6s;
+    padding-left:10px;
+}
+.gifInBox4 img{width:100%;}
+
+
+/*钻开始落地*/
+.zua img{width:100%;}
+.zua{width:.3rem;height:.3rem;position:absolute;right:-3000px;top:-3000px;
+    }
+
+.sliwuOver.start1 .zua{
+    right: .6rem;
+    top: -0.1rem;
+    -webkit-transition:all  2s  ease-in 8.6s;
+    transition:all  2s  ease-in 8.6s;
+}
+/*整体向上消失*/
+.sliwuOver.start1 .gifInBox4{
+    top:5rem;opacity:0;
+    -webkit-transition:all 2s linear 11s;
+    transition:all 2s linear 11s;
+}
+
+
+
+/*礼物三start*/
+
+/*礼物三start*/
+.gifInBox31 {
+    position: absolute;
+    left: 10px;
+    top: 6rem;
+    width: 4.08rem;
+    height: 0.94rem;
+    opacity:1;
+
+}
+.gifInBox31 .gifInLeftL{
+    background:url("../images/head14.png");
+    background-size: cover;
+}
+.gifInBox31 .gifInRightL{
+    background:url("../images/bb.png");
+    background-size: cover;
+}
+
+.gifInBox31 .gifIn{
+    background:url("../images/lv@2x.png");
+    background-size: cover;
+    left:-3000px;
+}
+.gifInRightRt{color:green;}
+
+
+   /*礼物三进场*/
+.sliwuOver.start1 .gifInBox31 .gifIn{
+    -webkit-transform:translateX(3000px);
+    transform:translateX(3000px);
+    -webkit-transition:all 1s ease-out 13s;
+    transition:all 1s ease-out 13s;
+   /* -webkit-animation: bounceInLeft 2s ease-in-out 13s forwards ;
+    animation: bounceInLeft 2s ease-in-out 13s forwards  ;*/
+}
+
+  /*数字变大*/
+.sliwuOver.start1 .gifInBox31 .gifInRightRt{
+    font-size:.8rem;
+    right: -.5rem;top:-.1rem;
+    -webkit-transition:all .2s ease-in 14s;
+    transition:all .2s ease-in 14s;
+    
+     -webkit-animation:animations .05s ease-out forwards  14.5s;
+    animation:animations .05s ease-out forwards  14.5s;
+   /* -webkit-animation:animations .05s ease-out forwards  3.5s;
+    animation:animations .05s ease-out forwards  3.5s;
+    -webkit-animation: scalebig .5s ease-in 15s forwards  ;
+    animation: scalebig .5s ease-in 15s  forwards ;*/
+}
+  /*向上移动,逐渐消失*/
+.sliwuOver.start1 .gifInBox31{
+    top:5rem;opacity:0;
+    -webkit-transition:all 2s  15s;
+    transition:all 2s  15s;
+   /* -webkit-animation: ahide 2s ease-in 16s  forwards ;
+    animation: ahide 2s ease-in 16s  forwards ;*/
+}
+
+@media screen and (min-width: 750px) {
+    .overfooter {
+        width:750px;
+        left:50%;
+        margin-left:-375px;
+    }
+    .overTop{
+       height:3rem;
+    }
+    .overTopMain {
+        margin: 0.5rem auto;
+    }
+    .gifshowbox {
+        margin-top: 1.3rem;
+    }
+    .footer{
+        width:750px;
+        left:50%;
+        margin-left:-375px;
+    }
+}
+/*数字变大*/
+@-webkit-keyframes scalebig{
+    0%{
+
+    }
+    95%{
+        right: -.5rem;top:-.1rem;
+        font-size:.8rem;
+        /*-webkit-transform:scale(4);
+        transform:scale(4);*/
+    }
+    100%{
+        top: 0.25rem;
+        right: -.5rem;
+        font-size:.24rem;
+
+       /* -webkit-transform:scale(1);
+        transform:scale(1);*/
+    }
+
+}
+
+@keyframes scalebig{
+    0%{
+
+    }
+    95%{
+        font-size:.8rem;
+        /*-webkit-transform:scale(4);
+        transform:scale(4);*/
+    }
+    100%{
+        top: 0.25rem;
+        right: -.5rem;
+        font-size:.24rem;
+        /* -webkit-transform:scale(1);
+         transform:scale(1);*/
+    }
+
+}
+
+
+@-webkit-keyframes animations{
+    0%{
+        top: 0.25rem;right: -.5rem;
+
+     }
+    100%{
+        top: 0.25rem;right: -.5rem;
+        font-size:.24rem;
+
+    }
+
+}
+
+@keyframes animations{
+    0%{
+        top: 0.25rem;right: -.5rem;
+
+    }
+    100%{
+        top: 0.25rem;right: -.5rem;
+        font-size:.24rem;
+
+    }
+}
+/*礼物进场*/
+@-webkit-keyframes bounceInLeft{
+
+    0%{
+    }
+
+    100%{
+        opacity:1;
+        left:10px;
+
+    }
+}
+@keyframes bounceInLeft{
+
+    0%{
+    }
+
+    100%{
+        opacity:1;
+        left:10px;
+
+
+    }
+}
+
+/*第一个礼物盒子延迟之后消失*/
+
+
+@-webkit-keyframes ahide{
+
+    0%{
+
+    }
+
+    100%{
+        top:3.5rem;
+        opacity:0;
+    }
+}
+
+@keyframes ahide{
+
+    0%{
+
+    }
+
+    100%{
+        top:3.5rem;
+        opacity:0;
+    }
+}
+
+
+/*第二个礼物进场*/
+
+
+
+@-webkit-keyframes fadeInLeft{
+    0%{opacity:0;-webkit-transform:translate3d(-100%,0,0);
+        transform:translate3d(-100%,0,0)
+    }
+    40%{opacity:1;-webkit-transform:none;transform:none}
+    100%{
+        opacity:0;
+    }
+}
+@keyframes fadeInLeft{
+    0%{
+        opacity:0;-webkit-transform:translate3d(-100%,0,0);
+        -ms-transform:translate3d(-100%,0,0);
+        transform:translate3d(-100%,0,0)
+    }40%{
+      opacity:1;
+      -webkit-transform:none;
+      -ms-transform:none;
+      transform:none}
+    100%{
+        opacity:0;
+    }
+}
+/*暂停*/
+
+#pose{width:100%;height:100%;background:rgba(201,55,201,.2);background:rgba(0,0,0,.4);z-index:899;position:absolute;left:0px;top:0px;display:none;}
+#posebut{width:1.2rem;height:1.2rem;position: absolute;background:url("../images/pause.png") center center no-repeat;background-size:cover;
+  left:50%;top:50%;margin-left:-.6rem;margin-top:-.6rem;  z-index: 99999;
+}
+
+#downZhe{background:rgba(0,0,0,.5);position:absolute;left:0px;top:0px;z-index:1000;width:100%;display:none;}
+/*#videoBar{overflow:hidden;overflow-y:hidden;}*/
+
+
+
+ 
+ 
+ @media screen and (min-width: 320px)and(max-width:374px) {
+       .gifInBox6,.gifInBox5,.gifInBox31{
+           top: 4rem;
+       }
+       .gifInBox4{
+         top: 4.5rem;
+       
+       }
+       
+      .sliwuOver.start1 .gifInBox6,.sliwuOver.start1 .gifInBox5,.sliwuOver.start1 .gifInBox4,.sliwuOver.start1 .gifInBox31{
+           top: 3rem;
+       }
+       
+ }
+ 
+  @media screen and (min-width: 375px) {
+       .gifInBox6,.gifInBox5,.gifInBox31{
+           top: 4.3rem;
+       }
+       .gifInBox4{
+         top: 5rem;
+       
+       }
+       
+      .sliwuOver.start1 .gifInBox6,.sliwuOver.start1 .gifInBox5,.sliwuOver.start1 .gifInBox4,.sliwuOver.start1 .gifInBox31{
+           top: 3rem;
+       }
+       
+ }
+ 
+ @media screen and (min-height: 520px)and(min-height:560px) {
+       .gifInBox6,.gifInBox5,.gifInBox31{
+           top: 3.3rem;
+       }
+       .gifInBox4{
+         top: 3rem;
+       
+       }
+       
+      .sliwuOver.start1 .gifInBox6,.sliwuOver.start1 .gifInBox5,.sliwuOver.start1 .gifInBox4,.sliwuOver.start1 .gifInBox31{
+           top: 2rem;
+       }
+       
+ }
+ 

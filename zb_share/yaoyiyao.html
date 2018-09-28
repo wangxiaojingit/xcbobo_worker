@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css" rel="stylesheet">
+        *{margin:0;padding:0;}
+        #box{width:150px;height:100px;background:pink;color:green;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var obox=document.getElementById("box");
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+    } else {
+        alert('你的设备不支持DeviceMotion事件');
+    }
+    var SHAKE_THRESHOLD = 3000;
+    var last_update = 0;
+    var x = y = z = last_x = last_y = last_z = 0;
+    //摇一摇开关，1表示开，0表示关
+    var num= 0,numflag=0;
+
+    function deviceMotionHandler(eventData) {
+        var acceleration = eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+
+        //100ms监听一次，拒绝重复监听
+        if ((curTime - last_update) > 100 ) {
+            var diffTime = curTime - last_update;
+            last_update = curTime;
+            x = acceleration.x;
+            y = acceleration.y;
+            z = acceleration.z;
+            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+            if (speed > SHAKE_THRESHOLD) {
+                num++;
+                var flag=num;
+               // obox.innerHTML=num;
+
+                window.setTimeout(function(){
+                    //2秒钟之后再次获取num的次数
+                    //如果num的次数没有增加,就说明摇动停止
+                    if( num==flag){
+                        numflag++;
+                        obox.innerHTML=numflag;
+                    }
+                },2000)
+            }
+            last_x = x;
+            last_y = y;
+            last_z = z;
+            
+        }
+    }
+</script>

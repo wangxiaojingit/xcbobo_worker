@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/indexStart.css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style type="text/css" rel="stylesheet">
+        body{display:none;}
+    </style>
+
+
+</head>
+<body>
+<!--最初暂停的状态Start-->
+<div id="startFm">
+    <div class="startFmIn">
+        <span id="startFmInL"></span>
+        <a id="startFmInR" href=""></a>
+    </div>
+    <div class="blackMb">
+        <div class="zt"></div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+</script>
+<script  type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function(){
+        //获取网址上的参数
+        function parameter(){
+            var url=document.location.href;
+            //  var url="http://www.xiuktv.com/xcbb_web/h5Activity/getSharePageInfo?zid=10004125&uid=10004122&type=1&sex=1&page=1&pageSize=100&token=123&province=111&nice=小辣"
+            var obj={};
+            var tem=[];
+            var ary=url.split("?")[1].split("&");
+            for(var i=0;i<ary.length;i++){
+                var cur=ary[i];
+                tem= cur.split("=");
+                obj[tem[0]]=tem[1];
+            }
+            return obj;
+        }
+        
+        //判断请求的网址域名是www.xcbobo.com还是www.xiuktv.com?
+        var ym="",ymname="";
+        if(document.location.href.indexOf("www.xcbobo.com")>1){
+            ym="1";//如果ym=1就说明是www.xcbobo.com
+            ymname="http://www.xcbobo.com";
+           
+        }else{
+            ym="2" ;//如果ym=2就说明是www.xiuktv.com
+            ymname="http://www.xiuktv.com";
+           
+        }
+       
+        //获取昵称
+        var name=decodeURI(parameter().name);
+        console.log(name)
+        $("title").html(name+'直播间');
+        console.log($("title").html);
+        //判断是不是微信安卓手机
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var u = navigator.userAgent;
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        //判断是否在微信里打开
+        function is_weixn(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if(is_weixn()&&!isiOS){
+            window.location.href="anzhuozb.html?zid="+parameter().zid+"&uid="+parameter().uid+"&name="+parameter().name+"&type="+parameter().type+"&ym="+ym;
+            return;
+        }else{
+         $("body").show();
+           // var str=ymname+"/xcbb_web/mobileLive/searchRecentUserLiveResult?sex=2&province=北京&type=3&page=1&pageSize=10&token=123&packageName=pc&version=pc&channel=pc&clientType=3&uid=";
+        	var bannerUrl=ymname+"/xcbb_web/h5Activity/anchor/head/photo?uid="+parameter().zid;
+            //获取相册列表的第一张图为封面
+             $.ajax({
+                        type:"get",
+                        url:bannerUrl,
+                        dataType:"json",
+                        success:function(data){
+                        	debugger;
+                            //选取家族的表格数据
+                            if(data.success){
+                            	var fmbanner=data.img;
+                            	$("#startFm").css("background-image","url("+fmbanner+")");
+                            	$("#startFm").css("background-size","cover");
+                            	
+                            }
+                            
+                            
+                          
+                           
+
+
+                        }
+                    })
+            
+        }
+    })
+</script>
+<script type="text/javascript" src="js/resize.js"></script>
+<script type="text/javascript" src="js/indexStart.js"></script>

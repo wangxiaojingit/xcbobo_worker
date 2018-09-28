@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 800px;
+			height: 400px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<a href="http://www.xiuktv.com/xcbb_web/weixin/weixin.html" id="btn">点击</a><input type="text" id="name" >
+	<!-- <iframe id="aaaaaaa" src="http://www.xiuktv.com/weixin/weixin.html"></iframe>
+	 -->
+
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src=" https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+
+		
+
+
+
+
+
+		// 获得access_token
+		$.ajax({
+			url:" http://www.xiuktv.com/xcbb_web/weixinh5/getToken?appid=wx91ac09ced03b76e6&secret=2f0608ffbba43baa5fd838102b3e523f",
+			type:"GET",
+			dataType:"json",
+			anync:false,
+			success:function(data){
+				console.log(data);
+				var ACCESS_TOKEN=data.access_token;
+				
+				// 获得code
+
+
+
+
+
+
+				/*//3.通过code获得openid
+				$.ajax({
+					url:"https://api.weixin.qq.com/sns/userinfo?access_token="+ACCESS_TOKEN+"&openid=OPENID&lang=zh_CN",
+					type:"GET",
+					dataType:"jsonp",
+					anync:false,
+					success:function(data){
+						console.log(data);
+					}
+				})
+			
+				//通过openid获得用户信息
+				$.ajax({
+					url:"https://api.weixin.qq.com/cgi-bin/user/info?access_token="+ACCESS_TOKEN+"&openid=o-FbHt0glHJNbs-oHz8dgidKuXRM&lang=zh_CN",
+					type:"GET",
+					dataType:"jsonp",
+					success:function(data){
+						console.log(data);
+					}
+				})
+*/
+			}
+		});
+
+
+
+	var state=uuid();
+				var httpUrls="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx91ac09ced03b76e6&redirect_uri=http%3a%2f%2fwww.xiuktv.com%2fxcbb_web%2fweixinh5%2freturnCode&response_type=code&scope=snsapi_base&state="+state+"#wechat_redirect";
+				
+				setTimeout(function(){
+					console.log(state);
+					$.ajax({
+						url:'http://www.xiuktv.com/xcbb_web/weixinh5/getCodeByState?state='+state,
+						type:"GET",
+						dataType:"json",
+						success:function(data){
+							alert(data.success);
+						}
+					})
+				},2000);
+
+	/*	// 得到请求url参数
+		function getUrlParam(code){  
+		
+		    //构造一个含有目标参数的正则表达式对象  
+		    var reg = new RegExp("(^|&)"+ code +"=([^&]*)(&|$)");  
+		    //匹配目标参数  
+		    var r = window.location.search.substr(1).match(reg);  
+		    //返回参数值  
+		    if (r!=null) return unescape(r[2]);  
+		    return null;  
+		}  
+
+		getUrlParam('code')*/
+		
+			//alert(getUrlParam('name'));
+		
+
+		function uuid() {
+		    var s = [];
+		    var hexDigits = "0123456789abcdef";
+		    for (var i = 0; i < 36; i++) {
+		        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+		    }
+		    s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+		    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+		    s[8] = s[13] = s[18] = s[23] = "-";
+		 
+		    var uuid = s.join("");
+		    return uuid;
+		}
+
+
+
+/*
+ function callback(result) {  
+    alert('cucess');  
+    alert(result);  //输出openid
+  }  
+  
+function getQueryString(name) {
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+  var r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]); return null;
+  }
+
+
+var code = getQueryString("code")
+console.log(code);*/
+
+
+	</script>
+</body>
+</html>

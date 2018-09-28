@@ -1,0 +1,68 @@
+#main{background:url("http://image.xcbobo.com/PubImgSour/playFace/images/playbg.jpg") center center no-repeat;background-size:cover;position:relative;}
+.top{width:100%;height:1.03rem;position:absolute;left:0px;top:0.28rem;}
+.head{float:left;margin-left:.3rem;}
+.headImg{width:1.02rem;height:1.02rem;border-radius:50%;border:1px solid #fff;float:left;overflow:hidden;}
+.headImg img{width:100%;float:left;}
+.leval{font-size:20px;color:#fff;float:left;margin-left:10px;height:1.02rem;line-height:1.02rem;}
+.music{width:0.7rem;height:0.7rem;background:url("http://image.xcbobo.com/PubImgSour/playFace/images/music.png") center center no-repeat;
+    float:right;background-size:cover;margin-right:.3rem;margin-top:0.15rem;}
+.face{width:5.97rem;height:7.29rem;position:absolute;bottom:4.35rem;left:50%;margin-left:-2.98rem;
+    background:url("http://image.xcbobo.com/PubImgSour/playFace/images/face1.png") no-repeat center center;background-size:cover;}
+.leftFace{background-image: url("http://image.xcbobo.com/PubImgSour/playFace/images/leftFace.png");}
+.rightFace{background-image: url("http://image.xcbobo.com/PubImgSour/playFace/images/rightFace.png");}
+.time{width:100%;height:1.1rem;line-height:1.1rem;text-align: center;color:#fff;position:absolute;bottom:3.2rem;}
+
+.timeText{font-size:0.38rem;margin-right:10px;}
+.timeNum{font-size:0.42rem;}
+.startbut,.startingbut{height:0.5rem;font-size:0.4rem;position:absolute;color:#fff;left:0px;
+    bottom:1.9rem;left:50%;margin-left:-1.05rem;color:#cab3dd;}
+.startingbut{
+    background:url("http://image.xcbobo.com/PubImgSour/playFace/images/yq.png") center center no-repeat;
+    background-size:cover;
+    width:1.33rem;
+    height:1.33rem;
+    border-radius:50%;
+    position:absolute;
+    bottom:1.35rem;left:50%;
+    margin-left:-0.66rem;
+    display:none;
+}
+
+
+.musicX{
+    -webkit-animation:zhuan360 1s linear  infinite ;
+    animation:zhuan360 1s linear infinite ;
+}
+
+/*360Ðý×ª*/
+
+@-webkit-keyframes zhuan360{
+    0%{
+
+    }
+
+    100%{
+        -webkit-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
+
+
+}
+@keyframes zhuan360{
+    0%{
+
+    }
+
+    100%{
+        -webkit-transform:rotate(360deg);
+        transform:rotate(360deg);
+    }
+
+
+}
+
+.clickSection{width:100%;height:4.4rem;border:1px solid pink;position:absolute;
+    bottom:0px;left:0px;background:#6d3bae;border-top:3px solid #b89fd8;
+}
+
+

@@ -1,0 +1,117 @@
+.button {
+  width: 1.8rem;
+  height: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  background: red;
+  color: #fff;
+  border-radius: 0.1rem;
+}
+#main {
+  width: 100%;
+  height: 100%;
+  /* position: relative; */
+  display:flex;
+  background: #1d1353;
+}
+#main #contentbox {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  background: #1d1353;
+  box-sizing: border-box;
+  
+}
+#main #contentbox #nogift {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  position: relative;
+    background: #1d1353;
+}
+#main #contentbox #nogift .nogiftIn {
+  width: 100%;
+  
+ /*  
+ height: 1.9rem;
+ position: absolute;
+  left: 0;
+  top: 40%;
+  margin-top: -0.9rem; */
+  text-align: center;
+  color: #fff;
+  padding-top:4rem;
+}
+#main #contentbox #nogift .nogiftIn p {
+  text-align: center;
+  line-height: 0.6rem;
+  height: 0.6rem;
+}
+#main #contentbox #nogift .nogiftIn a {
+  width: 1.8rem;
+  height: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  background: red;
+  color: #fff;
+  border-radius: 0.1rem;
+  margin-top: 0.1rem;
+  display: inline-block;
+}
+#nogift,.giftlists{display:none;}
+
+#getpriceTips{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,.6);
+	left:0;
+	top:0;
+	display:none;
+	
+}
+
+#getpriceTipsIn{
+	position:absolute;
+	width:5.4rem;
+	/* height:3.6rem; */
+	padding-top:0.3rem;
+	border-radius: 0.2rem;
+	box-sizing:border-box;
+	left:50%;
+	margin-left:-2.7rem;
+	margin-top:-1.8rem;
+	top:50%;
+	background:#362287;
+	
+}
+#getpriceTipsIn .p1{
+	font-size:18px;
+	color:#fff;
+	margin-bottom:0.4rem;
+	text-align:left;
+	padding-left:0.27rem;
+	padding-right:0.27rem;
+	box-sizing:border-box;
+	line-height:0.52rem;
+	
+}
+#getpriceTipsIn .p2{
+	font-size:16px;
+	color:#eccc0e;
+	text-align:left;
+	padding-left:0.27rem;
+	padding-right:0.27rem;
+	box-sizing:border-box;
+	line-height:0.5rem;
+	    margin-bottom: 10px;
+}
+#getpriceTipsIn .downbottom{
+	font-size:18px;
+	color:#babbff;
+	height:0.88rem;
+	text-align:center;
+	border-top:1px solid #4c3b94;
+	line-height: 0.88rem;
+}
+

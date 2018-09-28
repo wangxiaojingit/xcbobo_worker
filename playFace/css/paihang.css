@@ -1,0 +1,34 @@
+.paihang{width:100%;height:100%;background:rgba(0,0,0,.85);position:absolute;left:0px;top:0px;
+    padding-left:0.2rem;padding-right:0.2rem;box-sizing: border-box;z-index:10;display:none; overflow-y: hidden;}
+.paihangTop,.paihangTopW{width:100%;height:0.8rem;border-bottom:1px solid #838383;font-size:0.32rem;color:#fff;}
+.paihangTopW{position:relative;}
+.paihangTop>li{float:left; width:30%;height:0.79rem;line-height:0.79rem;text-align:center;}
+.close{width:0.45rem;height:0.45rem;background:url("http://image.xcbobo.com/PubImgSour/playFace/images/delete.png") no-repeat center center;background-size:cover;
+    position:absolute;right:0px;top:0.2rem;}
+.arbg{width:1.77rem;height:0.55rem;background:url("http://image.xcbobo.com/PubImgSour/playFace/images/bgarrow.png") no-repeat center center;
+    background-size:cover;font-size:0.28rem;color:#000;line-height:0.55rem;text-indent:10px;}
+.hdbox>p{line-height:1.28rem;color:#dddddd;font-size:0.28rem;}
+/*.conbox{margin-top:0.3rem;}*/
+.arbg2{width:2.79rem;}
+.current{border-bottom:2px solid #fff;}
+
+/*ÅÅÃû*/
+.pm{width:100%;height:1rem;line-height:1rem;font-size:0.28rem;color:#ddd;}
+.phboxs{width:100%;padding-left:0.2rem;padding-right:0.2rem;box-sizing:border-box;}
+.hs{width:100%;height:0.58rem;padding-top:0.33rem;font-size:0.28rem;color:#fdff00;}
+.hs>span{float:left;}
+.phlis>li{width:100%;height:1.19rem;border-bottom:1px solid #938f80;}
+.head{}
+.phlis>li>span{float:left;height:1.18rem;font-size:0.28rem;width:25%;line-height: 1.18rem;text-align:center;}
+.hs>span{float:left;width:25%;text-align:center;}
+.heada>img{width:0.8rem;height:0.8rem;border-radius:50%;display:block;margin:0 auto;margin-top:0.1rem;}
+.phlis>li span{font-size:0.28rem;color:#fff;}
+.pmboxs{overflow-y:auto;}
+.zjbox{font-size:0.28rem;color:#fff;width:100%;}
+.zjbox>p{text-indent:10px;line-height:0.6rem;}
+.conbox{display:none;}
+.paihang .select{display:block;}
+
+.gzbutton{width:4.66rem;height:0.88rem;border-radius:0.2rem;background:#d782f9;color:#fff;line-height:0.88rem;
+    text-align:center;position:absolute;bottom:1.61rem;left:50%;margin-left:-2.33rem;}
+#conboxs{padding-top:0.3rem;}

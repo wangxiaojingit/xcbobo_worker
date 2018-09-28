@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>啪啪啪,红包等你拿!</title>
+    
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/paihang.css"/>
+
+</head>
+<body>
+   <img id="liuliang" src="images/line.png" width=0 height=0 style="display:none">
+   <div id="main">
+       <div class="logotop"></div>
+       <div class="paiText">
+           <img src="http://image.xcbobo.com/PubImgSour/playFace/images/paitext.png" alt=""/>
+       </div>
+       <div class="jinnang"></div>
+       <div class="cynum"><span>已有</span><span id="people">3545</span><span>个人参加活动</span></div>
+       <div class="button1" ></div>
+       <div class="footer clearfix">
+           <ul class="footerIn">
+               <li class="clearfix">
+                   <div class="head"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/head1.jpg" alt=""/></div>
+                   <div class="headText"><span class="white">李锐</span><span class="zi">已领取</span><span class="gold">6666金币</span></div>
+               </li>
+               <li class="clearfix">
+                   <div class="head"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/head2.jpg" alt=""/></div>
+                   <div class="headText"><span class="white">佳妮</span><span class="zi">已领取</span><span class="gold">8888金币</span></div>
+               </li>
+               <li class="clearfix">
+                   <div class="head"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/head3.jpg" alt=""/></div>
+                   <div class="headText"><span class="white">张可</span><span class="zi">已领取</span><span class="gold">36000金币</span></div>
+               </li>
+               <li class="clearfix">
+                   <div class="head"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/head4.jpg" alt=""/></div>
+                   <div class="headText"><span class="white">李默</span><span class="zi">已领取</span><span class="gold">8000金币</span></div>
+               </li>
+               <li class="clearfix">
+                   <div class="head"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/head1.jpg" alt=""/></div>
+                   <div class="headText"><span class="white">李锐</span><span class="zi">已领取</span><span class="gold">6666金币</span></div>
+               </li>
+               <li class="clearfix">
+                   <div class="head"><img src="http://image.xcbobo.com/PubImgSour/playFace/images/head2.jpg" alt=""/></div>
+                   <div class="headText"><span class="white">佳妮</span><span class="zi">已领取</span><span class="gold">8888金币</span></div>
+               </li>
+           </ul>
+       </div>
+       <!--活动说明的开始-->
+       <!--排行榜-->
+       <div class="paihang">
+           <div class="paihangTopW">
+               <ul class="paihangTop clearfix">
+                   <li class="current">活动说明</li>
+                   <li>排行榜</li>
+                   <li>我的奖品</li>
+               </ul>
+               <div class="close"></div>
+           </div>
+           <div class="conboxs" id="conboxs">
+               <div class="conbox select " >
+                   <!--活动说明开始-->
+                   <div class="hdbox">
+                       <div class="arbg">活动奖品</div>
+                       <p>降龙十八掌:红包拿到手软,掌掌有惊喜.</p>
+                       <div class="arbg">活动时间</div>
+                       <p><span>2017-4-20</span><span class="mr5">到</span><span>2017-5-7</span></p>
+                       <div class="arbg">主办单位</div>
+                       <p>本次活动主办单位为 <span class="gold">小草播播</span></p>
+                       <div class="arbg arbg2">活动及兑奖说明</div>
+                       <p>达到88掌即可获得抽奖机会,每人每日有3次抽奖机会.</p>
+                       <p>获奖后扫描二维码,进群即可领取金币.</p>
+                   </div>
+                   <!--活动说明结束-->
+               </div>
+               <div class="conbox ">
+                   <!--排名开始-->
+                   <div class="pm"><span>当前排名:</span><span>10</span><span>位</span><span class="ml10">(只显示前10名)</span></div>
+                   <div class="phboxs">
+                       <div class="hs clearfix" id="hs">
+                           <span>排行</span>
+                           <span>头像</span>
+                           <span>昵称</span>
+                           <span>成绩</span>
+                       </div>
+                       <div class="pmboxs">
+                           <ul class="phlis">
+                           </ul>
+                       </div>
+                   </div>
+                   <!--排名结束-->
+               </div>
+               <div class="conbox">
+                   <!--中奖记录的开始-->
+                   <div class="zjbox">
+                      <p class="zj"><span>中奖</span><span id="zjtimes"></span><span>次</span><span class="ml20" id="dj"></span><span class="ml20" id="monery"></span></p>
+                   </div>
+                   <!--中奖记录的结束-->
+               </div>
+           </div>
+       </div>
+
+       <!--活动说明的结束-->
+       
+   </div>
+  
+</body>
+</html>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/index2.js?v=333"></script>
+<script type="text/javascript" src="js/paihang.js"></script>

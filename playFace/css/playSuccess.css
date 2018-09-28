@@ -1,0 +1,17 @@
+.palySuccess,.palyFail{width:100%;height:100%;background:rgba(0,0,0,.8);position:absolute;left:0px;top:0px;display:none;}
+.logo{width:5.06rem;height:4.11rem;position:absolute;background:url("http://image.xcbobo.com/PubImgSour/playFace/images/logo1.png") center center no-repeat;background-size:cover;left:50%;top:0;z-index:3;margin-left:-2.53rem;}
+.buttons{width:3.8rem;height:2.03rem;margin:0.5rem auto;}
+.textContent{font-size:0.32rem;color:#fff;margin-top:3.34rem;}
+.textContent p{text-align:center;line-height:0.6rem;}
+.choujiang{background:#e1aa25;margin-bottom:0.2rem;}
+.buttons .currentBg{background-image:url("http://image.xcbobo.com/PubImgSour/playFace/images/shareD.png")}
+
+.buttBottom .buttBottomLeft{width:3.78rem;height:.88rem;line-height:0.88rem;
+    float:left;text-align:center;border-radius:5px;color:#fff; font-size:0.38rem;}
+.buttBottom .buttBottomRight{ background:#d782f9;}
+.palyFail .logo{background-image: url("http://image.xcbobo.com/PubImgSour/playFace/images/logo2.png")}
+.playagin{background:#e1aa25;margin:0 auto;}
+.palyFail .buttBottom{margin-top:10px;}
+a{display:block;}
+.playagin,.buttBottom,.choujiang,.buttBottomRight{width:3.78rem;height:0.88rem;color:#fff;font-size:0.32rem;line-height:0.88rem;text-align:center;
+border-radius:5px;letter-spacing: 3px;}

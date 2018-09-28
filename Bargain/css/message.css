@@ -1,0 +1,418 @@
+body,html{overflow:auto;}
+body{background:#1d1353;}
+#main{
+	background: #1d1353;
+    color: #fff;
+    
+}
+/* 123 */
+/* 修改弹框 */
+.button {
+  width: 1.8rem;
+  height: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  background: red;
+  color: #fff;
+  border-radius: 0.1rem;
+}
+.myMessage {
+
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    background: url("../images/bg_2.jpg");
+    background-size: 100% 100%;
+    color: #fff;
+    height: 4.82rem;
+    padding-top: 0.1rem;
+    box-sizing:border-box;
+}
+.myMessage .myhead {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    overflow:hidden;
+}
+.myMessage .myname{color:#9c84ff;
+    font-size: 10px;
+    line-height: 20px;}
+.myname2{
+    color:#fff;
+    font-size: 10px;
+    line-height: 20px;
+}
+.myMessage .myhead img {
+  display: block;
+  width: 1rem;
+    height: 1rem;
+  border-radius: 100%;
+  border: 1px solid #dadada;
+  overflow:hidden;
+  position:relative;
+  
+}
+
+.myMessage .myhead img:after { 
+  /* content: url('../images/avtor.jpg');
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius:50%; */
+}
+.myMessage .message {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0.3rem;
+  box-sizing: border-box;
+}
+.myMessage .message .MessLeft {
+    width: 1.34rem;
+    height: 1.34rem;
+    flex: 0 0 1.34rem;
+    margin: 0 0.3rem;
+    overflow:hidden;
+}
+.myMessage .message .MessLeft img {
+  width: 100%;
+  display: block;
+}
+.myMessage .message .Messright {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.myMessage .message .Messright p {
+  text-align: left;
+  text-indent: 0.2rem;
+  font-size: 10px;
+}
+.myMessage .message .Messright .MessNamge {
+  flex: 1;
+  font-size: 12px;
+  color:#9c84ff;
+}
+.myMessage .message .Messright .MessNum {
+  flex: 0 0 0.2rem;
+  color:#625e79;
+}
+.myMessage .message .Messright .Messzige {
+  flex: 0 0 0.2rem;
+  color:#625e79;
+}
+.myMessage .message .Messright .oldmoney {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0;
+    color: #ff7961;
+    font-size: 10px;
+}
+.myMessage .message .Messright a {
+  width: 1.8rem;
+  height: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  background: red;
+  color: #fff;
+  border-radius: 0.1rem;
+}
+.cutMoney {
+  width: 100%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 24px;
+  text-align: center;
+  margin-top: -0.2rem;
+}
+.frendCut {
+  width: 90%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 18px;
+  display: block;
+  margin: 0.1rem auto;
+  text-align: center;
+  color: #fff;
+  background:#ff6360;
+  border-radius:5px;
+ animation:big 1s ease-in-out  infinite forwards ;
+  -webkit-animation:big 1s ease-in-out  infinite forwards ;
+}
+#bangkut{
+	display:none;
+}
+.cuttime,.overdue {
+  width: 100%;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  text-align: center;
+  font-size: 12px;
+  color:#aaaba1;
+}
+.overdue{display:none;}
+.cutPepleBox {
+  padding: 0 0.3rem;
+  box-sizing: border-box;
+  
+}
+.cutPepleBox .title {
+  font-size: 12px;
+  text-align: center;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  color:#947df6;
+}
+.cutPepleLists li {
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #412681;
+}
+.cutPepleLists li .left {
+  float: left;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+}
+.cutPepleLists li .left .headimg {
+    width: 0.8rem;
+    height: 0.8rem;
+    flex: 0 0 0.8rem;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin-right:0.2rem;
+}
+.cutPepleLists li .left .headimg img {
+   width: 0.8rem;
+    height: 0.8rem;
+  display: block;
+      border-radius: 50%;
+  overflow:hidden;    
+  position:relative;
+}
+.cutPepleLists li .left .headimg img:after { 
+  content: url('../images/avtor.jpg');
+  display: block;
+  position: absolute;
+ 
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius:50%;
+}
+.cutPepleLists li .left .leftRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cutPepleLists li .left .leftRight span {
+  flex: 1;
+  font-size:14px;
+  color:#969696;
+}
+.cutPepleLists li .left .leftRight .nick {
+      font-size: 14px;
+      color:#fff;
+}
+.cutPepleLists li .right {
+  float: right;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.2rem;
+}
+.cutPepleLists li .right .avtor {
+    width: 0.39rem;
+    height: 0.33rem;
+    margin-right:0.2rem;
+}
+.cutPepleLists li .right .avtor img {
+  width: 100%;
+  display: block;
+}
+.cutPepleLists li .right .cutMoney {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  color:#edd000;
+  font-size:14px;
+}
+.block {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.block .tipshare {
+  font-size:18px;
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  color: #fff;
+}
+.weboverBlock{
+	position:fixed;
+	left:0;
+	top:0;
+	background:rgba(0,0,0,.7);
+	width: 100%;
+    height: 100%;
+    font-size: 12px;
+    display:none;
+    z-index: 99;
+    
+}
+
+.status1,.status2,.status3,.status4{
+	width: 5.8rem;
+    margin-left: -2.9rem;
+    margin-top: -1.8rem;
+	position:absolute;
+	left:50%;
+	top:50%;
+
+	background:#fff;
+	display:none;
+	color:#333;
+	background: #371b89;
+	color:#fff;
+	border-radius: 0.2rem;
+	padding-top: 0.5rem;
+    box-sizing: border-box;
+    font-size:18px;
+}
+.status1 .close,.status2 .close{
+	width:0.41rem;
+	height:0.34rem;
+	background:url("../images/close.png") center center no-repeat;
+	background-size:cover;
+	position:absolute;
+	 right: 5px;
+    top: 5px;
+}
+.status1 p,.status2 p,.status3 p,.status4 p{
+	text-align:left;
+	padding:0 0.2rem;
+	line-height: 0.6rem;
+	text-align:center;
+	font-size:16px;
+}
+.status1 .bottom,.status2 .bottom,.status3 .bottom, .status4 .bottom{
+	width:100%;
+	height:0.88rem;
+	display:flex;
+	flex-direction:row;
+	margin-top: 0.3rem;
+	border-top:1px solid #513c99;
+	color:#b4b4ff;
+	font-size:16px;
+	line-height:0.88rem;
+	
+}
+.bottom a{
+	color:#b4b4ff;
+}
+.webclose{
+	border-left:1px solid #513c99;
+}
+.webclose,.downapp{
+	flex:1;
+	height:0.8rem;
+	line-height:0.8rem;
+	text-align:center;
+	
+}
+#myGoods2{
+	position:fixed;
+	bottom: 30px;
+    right: 0px;
+	width:3rem;
+	height:0.88rem;
+	background:rgba(57,38,141,.9);
+	overflow: hidden;
+	border-top-left-radius: 0.44rem;
+    border-bottom-left-radius: 0.44rem;
+	
+}
+#myGoods2 .head2{
+	float:left;
+	width:0.8rem;
+	height:0.8rem;
+	border-radius:50%;
+	margin-top: 0.04rem;
+	overflow: hidden;
+	margin-right: 10px;
+	    margin-left: 5px;
+}
+#myGoods2 .head2 img{
+	width:100%;
+	display: block;
+	font-size:0;
+}
+#myGoods2 .headText2{
+	float:left;
+	color:#12ffff;
+	font-size:14px;
+	    height: 0.88rem;
+    line-height: 0.88rem;
+}
+#myGoods2 .headText2 .red{
+	color:#ff665d
+}
+
+
+.blockWebShare2{
+	width:100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+   
+    box-sizing: border-box;
+    display: none;
+    z-index: 999;
+}
+
+.blockWebShare2Top {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.blockWebShare2Center {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.blockWebShare2Center p {
+    font-size: 18px;
+    color: #fff;
+    line-height: 0.6rem;
+    padding: 0 0.3rem;
+    margin-bottom: 0.1rem;
+}
+.yellow {
+    color: #fff700;
+}
+[v-cloak] {
+		display: none;!important；
+	}

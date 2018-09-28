@@ -1,0 +1,71 @@
+*{
+    margin:0;padding:0;
+}
+
+
+ul,li,ol{
+    list-style:none;
+}
+html,body{
+   width:100%;
+   height:100%;
+   font-size:100px;
+   overflow:hidden;
+  -moz-user-select: none; 
+-webkit-user-select: none; 
+-ms-user-select: none; 
+-khtml-user-select: none; 
+user-select: none; 
+background:#1d1353;
+-webkit-overflow-scrolling:touch;
+overflow-scrolling:touch;
+   
+}
+i{font-style:normal;}
+a{
+    text-decoration: none;
+}
+
+
+.yellow{
+	color: #fff700;
+}
+/*鎵�湁涓绘祦娴忚鍣ㄩ兘鏀寔 :after 浼厓绱犮�*/ 
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden} 
+
+[v-cloak] {
+    display: none;
+}
+
+ -webkit-animation:big 1s ease-in-out  infinite forwards ;
+        }
+        @keyframes big{
+    0%{ 
+        transform:scale(.9);
+        -webkit-transform:scale(.9);
+        
+    }
+
+    100%{
+        transform:scale(1);
+        -webkit-transform:scale(1);
+       
+    }
+
+
+}
+@-webkit-keyframes big{
+     0%{
+        transform:scale(.9);
+         -webkit-transform:scale(.9);
+         
+     }
+
+     100%{
+         transform:scale(1);
+         -webkit-transform:scale(1);
+        
+     }
+
+
+ }

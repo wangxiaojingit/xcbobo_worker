@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="wrap">
+
+<!-- <input type='text' class='sosuo' placeholder='搜索直播间或频道'>123</input> -->
+
+<view class="list_ul">
+ <view class="list_li" wx:for="{{shujlist}}" wx:key="key">
+  	<navigator url="index_xq?zid={{item.zbid}}&uid={{userInfo.uid}}&username={{item.zbname}}&userimg={{item.headimgurl}}" hover-class="navigator-hover">
+      <view class='yjiaz' style='background-image: url({{item.headimgurl}});'>
+        <!-- <image src='{{item.headimgurl}}' /> -->
+      </view>
+     </navigator>
+    <view class='list_li_title'>
+      <text class="list_li_title_left">{{item.zbname}}</text>
+      <text class="list_li_title_right">{{item.showdata}}</text>
+      <view class="clear"></view>
+    </view>
+    <view class="clear"></view> 
+  </view>
+  <view class="clear"></view>
+
+
+</view>
+</view>

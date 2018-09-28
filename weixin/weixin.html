@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>小草话题</title>
+	<link rel="stylesheet" href="./css/weixin.css">
+</head>
+<body>
+	<div class="wrap">
+		<div class="page" id="page">
+			<section class="section">
+				<!-- <div class="list">
+					<h2></h2>
+					<h3>发布者：<span></span></h3>
+					<dl>
+						<dt></dt>
+						<dd><p></p><button class="btn">我来聊聊</button></dd>
+					</dl>
+				</div>
+				<div class="list">
+					<h2>孙杨夺金，用金牌回应侮辱</h2>
+					<h3>发布者：万物小草</h3>
+					<dl>
+						<dt></dt>
+						<dd><p>孙杨夺冠，游泳军团瞬间刷来金银铜！孙杨在400米自由泳中痛失金牌，面对侮辱，孙杨在200米自由泳中勇夺金牌，用金牌来回应侮辱，为中国代表图再添一金！</p><button class="btn">我来聊聊</button></dd>
+					</dl>
+				</div>
+				<div class="list">
+					<h2>中国首金--张梦雪</h2>
+					<h3>发布者：万物小草</h3>
+					<dl>
+						<dt></dt>
+						<dd><p>在此之前，张梦雪是一个陌生的名字，而此次奥运会，张梦雪却获得了女子10米气手枪的金牌，同时也是中国代表团此次里约奥运会的首枚金牌，这个时候，张梦雪这个名字才被人们所熟识，也记住了这个年强小姑娘。每届奥运会都有无数的运动健儿为国夺金，可是我们印象最深的总是夺得首枚金牌的那一个！</p><button class="btn">我来聊聊</button></dd>
+					</dl>
+				</div>
+				<div class="list">
+					<h2>体操团体赛折戟</h2>
+					<h3>发布者：万物小草</h3>
+					<dl>
+						<dt></dt>
+						<dd><p>奥运会中，体操一直是我们的一个强项，是冲击金牌的强势项目，在历年来的奥运会中也都拥有着完美的成绩，但是此次里约奥运会这是怎么了？男团，女团双双失利，与金牌无缘，最后，男子团体与女子团体的体操团体赛都以铜牌告终，希望在个人单项赛中继续加油，取得好成绩！</p><button class="btn">我来聊聊</button></dd>
+					</dl>
+				</div>
+				<div class="list">
+					<h2>"卖肉"主播才有市场</h2>
+					<h3>发布者：万物小草</h3>
+					<dl>
+						<dt></dt>
+						<dd><p>这是一个小的新闻内容，点开后可以查看更多你想知道的本新闻的相关信息</p><button class="btn">我来聊聊</button></dd>
+					</dl>
+				</div> -->
+			</section>
+		</div>
+		<div class="page" id="hfpage">
+			<header class="hfheader">
+				<!-- <dl class="dls">
+					<dt></dt>
+					<dd>
+						<p>小草</p>
+						<p>1楼 <span>2016 8-8 22：30</span></p>
+					</dd>
+				</dl>  -->
+			</header>
+			<section class="hfsection">
+				<div class="tiezi"></div>
+				<div class="hfcontent"></div>
+			</section>
+		</div>
+		<div class="page" id="wrpage">
+			<header class="wrheader">
+				<textarea id="input" placeholder="请输入内容..."></textarea>
+				<button id="tjbtn">提交</button>
+			</header>
+		</div>
+		<div class="page" id="wrpage2">
+			<header class="wrheader2">
+				<textarea id="input2" placeholder="请输入内容..."></textarea>
+				<button id="tjbtn2">提交</button>			</header>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">	
+//var urls='http://www.xiuktv.com/xcbb_web/weixin/weixin.html?fromUserName="+fromUserName+"&nick="+nick+"&headimgurl="+headimgurl'
+
+/*	var LocString = String(window.document.location.href); 	
+	var url=LocString.split("&");
+	console.log(url);
+	console.log(url[0]);
+	console.log(url[1]);
+	console.log(url[2]);*/
+//alert(location.href);
+
+
+//function GetRequest() {   
+   var url = location.search; //获取url中"?"符后的字串   
+   var theRequest = new Object();   
+   if (url.indexOf("?") != -1) {   
+      var str = url.substr(1);   
+      strs = str.split("&");   
+      console.log(strs);
+      for(var i = 0; i < strs.length; i++) {   
+         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+       //  console.log(theRequest);
+       //console.log(theRequest.nick);//获取nick昵称
+       var name=theRequest.nick;
+       console.log(name);
+       var headerimg=theRequest.headerimgurl;
+       var userName=theRequest.fromUserName;
+      }   
+   }   
+  // return theRequest;   
+//}   
+//GetRequest();
+
+
+
+
+//渲染帖子列表
+var otm="";
+$.ajax({
+	url:"http://www.xiuktv.com/xcbb_web/weixin/post/list",
+	type:"GET",
+	dataType:"json",
+	success:function(data){
+		//console.log(data.list);
+		$.each(data.list,function(key,val){
+			var bathUrl="http://www.xiuktv.com/PubImgSour";
+			var Post_img=bathUrl+val.post_img;
+			//console.log(val.create_time);
+			otm+="<div class='list'><h2>"+val.title+"</h2><h3>发布者：<span>"+val.post_name+"</span></h3><h3>发布时间：<span>"+val.create_time+"</span><strong>"+val.id+"</strong></h3><dl><dt><img src='"+Post_img+"'></dt><dd><p>"+val.post_content+"</p><button class='btn'>我来聊聊</button></dd></dl></div>";
+		})
+		$(".section").html(otm);
+
+		var Pid=$("strong").html();
+		console.log(Pid);
+		//点击帖子进入详情页
+		$(".list").on("click",function(){
+			$("#page").hide();
+			$("#wrpage").hide();
+			$("#hfpage").show();
+			$(this).find("button").html("回复");
+			$(this).find("button").css({
+				"background":"none",
+				"color":"#29d1c4",
+				"border":"1px solid #29d1c4",
+				"border-radius":"8px",
+				"font-size":"12px",
+				"padding":"2px 8px",
+				"position": "absolute",
+				"right":" 0",
+				"bottom": "0"
+			})
+			$(this).find("h2").hide();
+			$(this).find("h3").hide();
+			var ohtml=$(this).html();
+			$(".tiezi").append("<div class='list'>"+ohtml+"</div>");
+			var h2text=$(this).find("h2").html();
+			$("<h2>"+h2text+"</h2>").prependTo($(".hfheader"));
+			var h3text=$(this).find("h3").html();
+			$("<h3>"+h3text+"</h3>").appendTo($(".hfheader"));
+			
+			//获取某帖子全部评论	
+			var ohtcent="";
+			var ohthf="";
+			var parentId=$("em").html();
+			$.ajax({
+				url:"http://www.xiuktv.com/xcbb_web/weixin/post/getReplyByPostId",
+				type:"POST",
+				dataType:"json",
+				data:{pid:Pid},
+				success:function(data){
+					//GetRequest();
+					//console.log(name);
+					$.each(data.list,function(v,k){
+						ohtcent+="<p class='ps'>"+k.content+"<a href='#' class='ahf'>回复</a><i>"+k.answerid+"</i><em>"+k.id+"</em></p>";
+						//console.log(name);
+						if(k.parentId!=-1 && k.parentId==parentId){
+							console.log(k.parentId);
+							ohthf+="<p>"+k.content+"</p>";
+						}
+					})
+					$(".hfcontent").html(ohtcent);
+					$(".ps").append("<div class='divs'></div>");
+					$(".divs").html(ohthf);
+					//获取回复评论接口时所需要的一些参数
+					var messId=$("i").html();
+					//console.log(messId); 
+					var parentId=$("em").html();
+					//console.log(parentId);
+					//点击回复评论里的回复按钮进入输入文字页面
+					$(".ahf").on("click",function(){
+						$(this).parent("p").append("<div class='divs'></div>");
+						alert(1);
+						$("#page").hide();
+						$("#hfpage").hide();
+						$("#wrpage").hide();
+						$("#wrpage2").show();
+						$("#input2").blur(function(){
+							var text2=$(this).val();
+							$("#tjbtn2").on("click",function(){
+								alert(2);
+								console.log(2);
+								$("#page").hide();
+								$("#wrpage").hide();
+								$("#wrpage2").hide();
+								$("#hfpage").show();
+								//获取回复评论接口
+								$.ajax({
+									url:"http://www.xiuktv.com/xcbb_web/weixin/post/replyComment",
+									type:"POST",
+									dataType:"json",
+									data:{hid:name,bhid:name,messId:messId,parentId:parentId,pid:Pid,content:text2},
+									success:function(data){
+										console.log(data);
+										console.log(data.bhid);
+										console.log(data.content);
+									}
+								});
+								//获取某帖子全部评论	
+								var ohthf="";
+								$.ajax({
+									url:"http://www.xiuktv.com/xcbb_web/weixin/post/getReplyByPostId",
+									type:"POST",
+									dataType:"json",
+									data:{pid:Pid},
+									success:function(data){
+										console.log(data);
+													//console.log(data.list);
+										$.each(data.list,function(key,val){
+											console.log(val.parentId);
+											console.log(val.id);
+											if(val.parentId!=-1){
+												ohthf+="<p>"+val.content+"</p>";
+											}
+										})
+										$(".divs").html(ohthf);
+										//console.log($(".divs").html(ohthf));
+									}											
+								});	
+							})
+						})
+					})
+					if($(".btn").html("回复")){
+				//点击帖子回复按钮进入输入文字页面
+				$(".btn").on("click",function(){
+					$("#hfpage").hide();
+					$("#wrpage").show();
+					$("#page").hide();
+				})
+				//表单失去焦点
+				$("#input").blur(function(){
+					var text=$(this).val();
+					//点击提交按钮回到帖子详情页
+					$("#tjbtn").on("click",function(){
+						alert(1);
+						var ohtcent="";
+						$("#wrpage").hide();
+						$("#hfpage").show();
+						$("#page").hide();
+						var hh=$(".hfsection").find(".list").height()+20;
+						$(".hfcontent").css({
+							"position":"absolute",
+							"left":"0",
+							"top":hh+"px"
+						})
+						//获取回复评论接口
+						$.ajax({
+							url:"http://www.xiuktv.com/xcbb_web/weixin/post/replyComment",
+							type:"POST",
+							dataType:"json",
+							data:{hid:name,bhid:name,messId:messId,parentId:parentId,pid:Pid,content:text},
+							success:function(data){
+								//console.log(data);
+								//console.log(data.bhid);
+								//console.log(data.content);
+								console.log(data);
+							}
+						});
+						//获取某帖子全部评论	
+						$.ajax({
+							url:"http://www.xiuktv.com/xcbb_web/weixin/post/getReplyByPostId",
+							type:"POST",
+							dataType:"json",
+							data:{pid:Pid},
+							success:function(data){
+								//console.log(data);
+								
+								$.each(data.list,function(v,k){
+									
+									//console.log(parentId);
+									ohtcent+="<p class='ps'>"+k.content+"<a href='#' class='ahf'>回复</a></p>";
+									
+								})
+								$(".hfcontent").html(ohtcent);
+								
+								//点击回复评论里的回复按钮进入输入文字页面
+								$(".ahf").on("click",function(){
+									$(this).parent("p").append("<div class='divs'></div>");
+									console.log($(".divs").html());
+									alert(1);
+									$("#page").hide();
+									$("#hfpage").hide();
+									$("#wrpage").hide();
+									$("#wrpage2").show();
+									$("#input2").blur(function(){
+										var text2=$(this).val();
+										$("#tjbtn2").on("click",function(){
+											alert(2);
+											$("#page").hide();
+											$("#wrpage").hide();
+											$("#wrpage2").hide();
+											$("#hfpage").show();
+											//获取回复评论接口
+											$.ajax({
+												url:"http://www.xiuktv.com/xcbb_web/weixin/post/replyComment",
+												type:"POST",
+												dataType:"json",
+												data:{hid:name,bhid:name,messId:messId,parentId:parentId,pid:Pid,content:text2},
+												success:function(data){
+													console.log(data);
+												}
+											});
+											//获取某帖子全部评论
+											var ohthf="";	
+											$.ajax({
+												url:"http://www.xiuktv.com/xcbb_web/weixin/post/getReplyByPostId",
+												type:"POST",
+												dataType:"json",
+												data:{pid:Pid,parentId:parentId},
+												success:function(data){
+													console.log(data);
+													
+													//console.log(data.list);
+													$.each(data.list,function(key,val){
+														//console.log(val.parentId);
+														console.log(val.id);
+														if(val.parentId!=-1){
+															ohthf+="<p>"+val.content+"</p>";
+															
+														}
+													})
+													$(".divs").html(ohthf);
+												}
+																				
+											});	
+										})
+									})
+								})//272
+
+
+							}
+						})	//214
+
+					})//195
+				})//188
+			};//180
+
+
+
+				}
+			})
+			
+
+		})//139
+	}
+})
+	</script>
+</body>
+</html>

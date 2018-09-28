@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="小直播——直播分享">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-tap-highlight" content="no">
+    <style type="text/css" rel="stylesheet">
+        .vcp-controls-panel{ display:none;}
+        .vcp-slider{display:none;}
+        .starting{width:100%;height:100%;display:none;}
+        video{-webkit-tap-highlight-color:transparent;}
+        #videoBarBox{width:100%;height:100%;}
+        /* 禁止长按链接与图片弹出菜单*/
+        a,img { -webkit-touch-callout: none }
+        /*禁止ios和android用户选中文字*/
+        html,body {-webkit-user-select:none; user-select: none; }
+        /*消除transition闪屏*/
+        /* .css {
+             -webkit-transform-style: preserve-3d;
+             -webkit-backface-visibility: hidden;
+             -webkit-perspective: 1000;
+         }*/
+    </style>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body >
+<!--点击最初状态之后进入的状态-->
+<div id="videoBar" style="width:100%;position:absolute;left:0;top:0;z-index:999;"></div>
+<div class="startOver" ng-app="shareApp" ng-controller="myCtrl">
+    <div id="main"  >
+        <!--视频开始部分Start-->
+        <div id="mainIn" ng-if="islive">
+            <div id="zbbox">
+                <!--送礼物规划版start-->
+                <div class="sliwuOver">
+                    <div class="gifInBox6">
+                        <div class="gifIn">
+                            <div class="gifInLeft">
+                                <div class="gifInLeftL"></div>
+                                <div class="gifInLeftR">
+                                    <div class="gifInLeftrT">滔滔不绝</div>
+                                    <div class="gifInLeftrB">送幸运星</div>
+                                </div>
+                            </div>
+                            <div class="gifInRight">
+                                <div class="gifInRightL"></div>
+                                <div class="gifInRightC">
+                                    <div class="gifInRightcT">520</div>
+                                    <div class="gifInRightcB">连送</div>
+                                </div>
+                                <div class="gifInRightRt clearfix">
+                                    <div class="cheng1">X</div>
+                                    <div class="showgifNum2">1</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="gifInBox5">
+                        <div class="gifIn">
+                            <div class="gifInLeft">
+                                <div class="gifInLeftL"></div>
+                                <div class="gifInLeftR">
+                                    <div class="gifInLeftrT">滔滔不绝</div>
+                                    <div class="gifInLeftrB">送幸运星</div>
+                                </div>
+                            </div>
+                            <div class="gifInRight">
+                                <div class="gifInRightL"></div>
+                                <div class="gifInRightC">
+                                    <div class="gifInRightcT">520</div>
+                                    <div class="gifInRightcB">连送</div>
+                                </div>
+                                <div class="gifInRightRt clearfix">
+                                    <div class="cheng1">X</div>
+                                    <div class="showgifNum2">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gifInBox4">
+                        <img src="images/atten_bg.png" alt=""/>
+                        <div class="neirong">小坏坏进入了直播间</div>
+                        <div class="zua"><img src="images/m12@2x.png" alt=""/></div>
+                    </div>
+                    <div class="gifInBox31">
+                        <div class="gifIn">
+                            <div class="gifInLeft">
+                                <div class="gifInLeftL"></div>
+                                <div class="gifInLeftR">
+                                    <div class="gifInLeftrT">小呆萌</div>
+                                    <div class="gifInLeftrB">送棒棒糖</div>
+                                </div>
+                            </div>
+                            <div class="gifInRight">
+                                <div class="gifInRightL"></div>
+                                <div class="gifInRightC">
+                                    <div class="gifInRightcT">520</div>
+                                    <div class="gifInRightcB">连送</div>
+                                </div>
+                                <div class="gifInRightRt clearfix">
+                                    <div class="cheng1">X</div>
+                                    <div class="showgifNum2">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--送礼物规划版end-->
+                <div id="fc">
+                    <div class="headMessage clearfix">
+                        <!--直播头像房间号等头部信息-->
+                        <div class="zbMessage clearfix">
+                            <div class="zbHead">
+                                <img src="{{headUrl}}" alt="头像"/>
+                                <div class="zuxs"></div>
+                            </div>
+                            <div class="zbId">
+                                <div class="zbName">{{name||"香烟爱上火柴"}}</div>
+                                <!--<div class="gzNumber">{{gzNum}}人</div>-->
+                                <div class="gzNumber">678人</div>
+                            </div>
+                            <!--关注-->
+                            <div class="zbFocus" id="zbFocus" ng-click="downHrefs(e)"></div>
+                        </div>
+                        <!--头像列表-->
+                        <div class="headbox">
+                            <div class="headI"></div>
+                            <div class="headIcons">
+                                <ul class="headIconsIn">
+                                    <li ng-repeat="s in headlistData" >
+                                        <img src="{{s.src}}" alt=""/>
+                                        <div class="zlis">
+                                            <img src="{{s.zjsrc}}" alt="等级"/>
+                                            <img src="" alt="等级"/>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--关注多少名-->
+                    <div class="loves">
+                        <!-- <img src="http://www.xiuktv.com//live/images/656b008b-403a-4401-bfc3-3d18d9dc3fdb.png" alt=""/>-->
+                        <div class="lovesInTop"></div>
+                        <div class="lovesInBottom"  style='color:#FFFFFF;text-shadow:#f68ab2 0px 1px 3px,#f68ab2 1px 0px 3px,#f68ab2 0px -1px 3px,#f68ab2 -1px 0px 3px;filter:glow(color=#f68ab2,strength=3)'>第{{pm||10}}名</div>
+                    </div>
+                    <!--送礼物的板块-->
+                    <!--底板的板块-->
+                    <div class="footer">
+                        <!--底部发送聊天-->
+                        <div class="chat">
+                            <div class="chatbox" id="chatbox" ng-click="downHrefs($event)">聊聊天...</div>
+                            <ul class="giftbox">
+                                <li class="gifbut" id="gifbut" ng-click="downHrefs($event)"></li>
+                                <li></li>
+                            </ul>
+                            <!--评论的板块-->
+                            <div class="plbox" style="overflow:hidden;">
+                                <!-- <marquee  direction=up scrolldelay="1000">-->
+                                <ul class="comments">
+                                    <li class="clearfix">
+                                        <span class="chatIcon">20</span>
+                                        <span class="chatName">愤怒的麻豆:</span>
+                                        <span class="chatContent">主播在发呆吗?</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="chatIcon">59</span>
+                                        <span class="chatName">小豆芽:</span>
+                                        <span class="chatContent">分享了主播的直播</span>
+                                    </li>
+                                    <li class="clearfix">
+
+                                        <span class="chatName">白水煮鸡蛋:</span>
+                                        <span class="admin">被设为管理员</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="chatIcon">59</span>
+                                        <span class="chatName">小豆芽:</span>
+                                                <span class="chatContent">
+                                                  <span class="it">@开黑</span>
+                                                  <span>你这是在干啥</span>
+                                                </span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="chatIcon">20</span>
+                                        <span class="chatName">愤怒的麻豆:</span>
+                                        <span class="chatContent">4</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="chatIcon">59</span>
+                                        <span class="chatName">小豆芽:</span>
+                                        <span class="chatContent">3</span>
+                                    </li>
+                                    <li class="clearfix">
+
+                                        <span class="chatName">白水煮鸡蛋:</span>
+                                        <span class="admin">2</span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="chatIcon">1</span>
+                                        <span class="chatName">小豆芽:</span>
+                                                <span class="chatContent">
+                                                  <span class="it">@开黑</span>
+                                                  <span>1</span>
+                                                </span>
+                                    </li>
+                                    <li class="clearfix">
+                                        <span class="chatIcon">1</span>
+                                        <span class="chatName">小豆芽:</span>
+                                                <span class="chatContent">
+                                                  <span class="it">@开黑</span>
+                                                  <span>1</span>
+                                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--底部下载小草-->
+                        <div class="download" id="download">
+                            <span id="downloadLeft"></span>
+                            <a id="downloadRight" href="{{downHref}}"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--暂停按钮start-->
+            <div id="pose">
+                <div id="posebut" src="images/pause.png" alt="暂停"/> </div>
+        </div>
+        <!--暂停按钮end-->
+    </div>
+    <!--视频开始部分End-->
+    <div id="downZhe"></div>
+    <div class="downloadbox">
+        <a class="downButton" id="downButton"  href="{{downHref}}" class="bottom"></a>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script src="js/TcPlayer.js" charset="utf-8"></script>
+<script src="js/angular.js"></script>
+<script type="text/javascript">
+
+        function parameter(){
+            var url=document.location.href;
+            var obj={};
+            var tem=[];
+            var ary=url.split("?")[1].split("&");
+            for(var i=0;i<ary.length;i++){
+                var cur=ary[i];
+                tem= cur.split("=");
+                obj[tem[0]]=tem[1];
+            }
+            return obj;
+        }
+//判断域名
+var ymname="";
+if(parameter.ym=="1"){
+    ymname="http://www.xcbobo.com";
+}else{
+    ymname="http://www.xiuktv.com";
+}
+~function(){
+    /*控制页面的自适应*/
+    var desW=750,winW=document.documentElement.clientWidth||document.body.clientWidth;
+    var omain=document.getElementById("main");
+    var ratio=winW/desW;
+    if(winW>750){
+        omain.style.width="750px";
+        omain.style.margin="0 auto";
+        document.documentElement.style.fontSize="100px";
+        return;
+    }
+    document.documentElement.style.fontSize=ratio*100+"px";
+    var screenH=document.documentElement.clientHeight||document.body.clientHeight;
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    var downHref=""
+    /*判定是安卓还是ios加载下载链接*/
+    if(isAndroid){
+        //downHref=ymname+"/xcbb_web/resources/download/anzhuo.apk";
+        downHref="http://a.app.qq.com/o/simple.jsp?pkgname=com.prsoft.xcshow&ckey=CK1365767037332";
+    }else{
+        downHref="https://itunes.apple.com/cn/app/id1191416714";
+    }
+    $("#startFmInR").attr("href",downHref);
+}();
+/*判定如果是在pc端打开*/
+function IsPC() {
+    var videoBarBox=document.getElementById("videoBarBox");
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+        "SymbianOS", "Windows Phone",
+        "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) < 0) {
+            //证明是在pc端打开,我们改变一下样式
+            if(videoBarBox){
+                videoBarBox.width="750px";
+                videoBarBox.height=(document.documentElement.clientHeight||document.body.clientHeight)+"px";
+                videoBarBox.style.margin="0 auto";
+            }
+        }
+    }
+}
+IsPC();
+
+/*document.body.addEventListener('touchstart',function(e){
+
+	 if(e.cancelBubble){
+	  e.cancelBubble=true;
+	
+	 }else if(e.defaultPrevented){
+	  e.defaultPrevented=true;
+	 }else if(e.returnValue){
+	  e.returnValue=false;
+	 }
+
+ });*/
+/* document.body.addEventListener('touchmove',function(e){
+
+ if(e.cancelBubble){
+ e.cancelBubble=true;
+
+ }else if(e.defaultPrevented){
+ e.defaultPrevented=true;
+ }else if(e.returnValue){
+ e.returnValue=false;
+ }
+
+ });*/
+
+/* document.body.addEventListener('touchend',function(e){
+
+ if(e.cancelBubble){
+ e.cancelBubble=true;
+
+ }else if(e.defaultPrevented){
+ e.defaultPrevented=true;
+ }else if(e.returnValue){
+ e.returnValue=false;
+ }
+ });*/
+
+</script>
+<script type="text/javascript" >
+    //让直播的板块的高度等于手机一屏幕的高度
+    var winH=document.documentElement.clientHeight;
+    var winW=document.documentElement.clientWidth;
+    var Ozbbox=document.getElementById("zbbox");
+    var OvideoBar=document.getElementById("videoBar");
+    var ofc=document.getElementById("fc");
+    var OdownZhe=document.getElementById("downZhe");
+    var omainIn=document.getElementById("mainIn");
+    OvideoBar.style.height=winH+"px";
+    OdownZhe.style.height=winH+"px";
+    omainIn.style.height=winH+"px";
+    ofc.style.height=winH+"px";
+</script>
+<script type="text/javascript">
+    /*
+     * zid:主播的id
+     * uid:用户的id
+     * type:分享的类型,1:QQ 2微信 3微博
+     * flUrl:视频的地址
+     * name:昵称
+     * */
+
+    var shareApp = angular.module('shareApp', []);
+    shareApp.controller('myCtrl',function ($scope,$http,$location) {
+        //禁止手指在移动的过程中,把整个页面向下拉
+
+        /*  document.body.addEventListener('touchmove',function(e){
+         e.returnValue=false;
+         e.cancelBubble=true;
+         });*/
+        //获取网址上的参数
+        function parameter(){
+            var url=document.location.href;
+            var obj={};
+            var tem=[];
+            var ary=url.split("?")[1].split("&");
+            for(var i=0;i<ary.length;i++){
+                var cur=ary[i];
+                tem= cur.split("=");
+                obj[tem[0]]=tem[1];
+            }
+            return obj;
+        }
+        $scope.ymname="";
+        if(parameter().ym=="1"){
+            // $scope.ymname="http://www.xcbobo.com:8098";
+            $scope.ymname="http://www.xcbobo.com";
+            $scope.ymnamePho="http://image.xcbobo.com";
+
+        }else{
+            $scope.ymname="http://www.xiuktv.com";
+            $scope.ymnamePho="http://www.xiuktv.com";
+        }
+        //从原生那里获取热门服务列表的相关参数,从网址上获取
+        $scope.zid=parameter().zid;
+        $scope.uid=parameter().uid;
+        $scope.sex=parameter().sex;
+        $scope.province=parameter().province;
+        $scope.type=parameter().type;
+        $scope.page=parameter().page;
+        $scope.token=parameter().token;
+        $scope.name=decodeURI(parameter().name);
+        //var strUrl=ymname+"/xcbb_web/h5Activity/getSharePageInfo?zid="+zid+"&uid="+uid+"&type="+type;
+        /*判定是安卓还是ios加载下载链接*/
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isAndroid){
+            //$scope.downHref=$scope.ymname+"/xcbb_web/resources/download/anzhuo.apk";
+            $scope.downHref="http://a.app.qq.com/o/simple.jsp?pkgname=com.prsoft.xcshow&ckey=CK1365767037332";
+        }else{
+            $scope.downHref="https://itunes.apple.com/cn/app/id1191416714";
+            //如果是ios手机的话,我就让#videoBar{overflow:hidden;overflow-y:hidden;}
+            $("#videoBar").css("overflow","hidden")
+        }
+        /*获取房间号*/
+        //$scope.zid=10002729;
+        /*获取主播的昵称*/
+        $("title").html($scope.name+"的直播间");
+        var strUrl=$scope.ymname+"/xcbb_web/h5Activity/getSharePageInfo?zid="+$scope.zid+"&uid="+$scope.uid+"&type="+$scope.type;
+        /*进入的时候先判断是不是直播中的状态,请求接口进行判断*/
+        window.addEventListener("popstate", function(e) {
+            console.log("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能 
+        }, false);
+
+        $http.get(strUrl)
+                .success(function (response) {
+                    /*isLive:1 直播中.0直播结束*/
+                    $scope.islive = response.isLive;
+                    /*在直播中的时候关注的人数*/
+                    $scope.gzNum=response.num;
+                    $scope.photo=response.photo;
+                    /*请求头像*/
+                    $scope.headUrl= $scope.ymnamePho+"/PubImgSour/"+ $scope.photo+".png";
+                    /*如果是直播中的话*/
+                    /* $scope.islive*/
+                    if($scope.islive){
+                        //如果是安卓机子的时候,并且在直播中
+                        /*如果是在直播中的状态,就让去请求视频流*/
+                        var rtmburl=response.rtmburl;
+                        $("html,body").css("overflow","hidden");
+                        $("body,html").css("overflow-Y","hidden");
+                        /*播放直播的视频,把直播视频追加到zbbox里面*/
+                        if(rtmburl){
+                            var winH=document.documentElement.clientHeight||document.body.clientHeight;
+                            var winW=document.documentElement.clientWidth||document.body.clientWidth;
+                            var player = new TcPlayer('videoBar', {
+                                "m3u8": rtmburl,
+                                "width" : winW,//视频的显示宽度，请尽量使用视频分辨率宽度
+                                "height" :'auto',//视频的显示高度，请尽量使用视频分辨率高度
+                                "autoplay" : true,
+                                "wording": {
+                                    2032: "请求视频失败，请检查网络",
+                                    2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
+                                }
+                            })
+                            var ovideoBar=document.getElementById("videoBar");
+                            var videotag=ovideoBar.getElementsByTagName("video")[0];
+                            if(videotag){
+                                videotag.setAttribute('x5-video-player-type', 'h5');
+                                videotag.setAttribute('x5-video-player-fullscreen', 'true');
+                                videotag.setAttribute('autoplay', 'true');
+                            }
+
+                        }
+                        $scope.weekInfo=response.weekInfo;
+                        /*直播中星排名*/
+                        $scope.pm=$scope.weekInfo.num;
+                        /*
+                         * 头像列表服务
+                         * 头像src:$scope.headlistData
+                         * 头像底部的钻:
+                         * */
+                        $scope.headlistData=[];
+                        $scope.headZ=[];
+                        for(var i=20;i>0;i--){
+                            var cur={};
+                            if(i==20){
+                                cur.src=$scope.headUrl;
+                                cur.zjsrc="images/m1@2x.png";
+                            }else{
+                                cur.src="images/head"+i+".png";
+                                cur.zjsrc="images/m"+i+"@2x.png";
+                            }
+                            $scope.headlistData.push(cur);
+                        }
+                        /*控制css3播放的样式动画*/
+                        window.setTimeout(function(){
+                            $('.sliwuOver').addClass('start1');
+                        },500)
+                        /*滚动和礼物*/
+                        var time3=window.setTimeout(function(){
+                            $('.comments').show(500,callback);
+                        },500);
+                        function callback(){
+                            var n=12;var flg=true;
+                            if(flg){
+                                var time2= window.setInterval(function(){
+                                    n+=10;
+                                    /*这里的100是滚动条可以滚动的最大距离,达到这个值得话就让其等于0*/
+                                    if(n>=100){
+                                        n=0;
+                                    }
+                                    $('.comments').scrollTop(n);
+                                },1000)
+                            }
+                        }
+                        /*循环播放礼物*/
+                        var time1= window.setInterval(function(){
+                            $(".sliwuOver ").removeClass("start1");
+                            window.setTimeout(function(){
+                                $(".sliwuOver ").addClass("start1");
+                            },500)
+                        },17000)
+                        /*给聊天\关注\礼物添加点击之后出现下载提示框*/
+                        $scope.downHrefs=function(e){
+
+                            var target=e.target;
+                            e.cancelable=true;
+                            e.isDefaultPrevented();
+                            $("#downZhe").show();
+                            $(".downloadbox").show();
+                        }
+                        var resizeNum=0
+                        window.setInterval(function(){
+                            $(window).resize(function(e) {
+                                //监听到手机的屏幕发生改变之后,我们要获取目前的手机屏幕的高度,改变视频外面的盒子的高度
+                                var screenH=document.documentElement.clientHeight||document.body.clientHeight;
+                                resizeNum++;
+                                if(resizeNum<20&&isAndroid){
+                                    $(".headMessage ").css("marginTop","30px");
+                                }
+                                if(resizeNum>20&&isAndroid){
+                                    $(".sliwuOver").hide();
+                                    $(".headMessage ").css("marginTop","10px");//用resizeNum来评估返回键,让礼物隐藏,尺寸不好适配.
+                                }
+                                $("#videoBar").css("height",screenH+'px');
+                                $("#videoBar").css("overflow","hidden");
+                                //此时送礼物的样式也得做下适配,如果屏幕的高度小于等于480的时候,我们需要把礼物的top值进行调试
+                            });
+                        },50)
+                    }
+                });
+    });
+
+   </script>

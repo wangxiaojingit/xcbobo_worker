@@ -1,0 +1,466 @@
+*{margin:0;padding:0;}
+html{font-size:100px;font-family: 'PingFang SC Medium',"Microsoft YaHei","Helvetica Neue",Helvetica,STHeiTi;}
+html,body{width:100%;height:100%;color:#fff;font-size:0.12rem;}
+ul,ol,li{list-style:none;}
+a{text-decoration: none;}
+.clearfix:before, .clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+    overflow:hidden;
+}
+.clearfix{
+    *zoom:1;
+}
+#main{position:relative;}
+
+/*最初开始的处于暂停的状态*/
+
+#startFm{width:100%;height:100%;background:url("../images/anchor.jpg");background-size:cover;position:relative;}
+.startFmIn{width:100%;height:1rem;background:#000;padding:0 .15rem;position:absolute;left:0px;bottom:0px;z-index:10;}
+.startFmIn #startFmInL{float:left;
+    width: 2.4rem;
+    height: .68rem;
+    float: left;
+    background: url("../images/logo@2x.png");
+    background-size: cover;
+    margin-top: .15rem;}
+.startFmIn #startFmInR{float:right;    float: right;
+    width: 2.04rem;
+    height: 0.62rem;
+    background: url("../images/xz@2x.png") no-repeat center center;
+    color: #fff;
+    line-height: 0.6rem;
+    border-radius: 0.1rem;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    background-size: cover;}
+.blackMb{position:absolute;left:0px;top:0px;width:100%;height:100%;background:rgba(0,0,0,.3);}
+.blackMb .zt{width:1.2rem;height:1.2rem;position:absolute;left:50%;top:50%;margin-left:-.6rem;margin-top:-.6rem;background:url("../images/pause.png");
+    background-size:cover;}
+
+
+/*直播板块*/
+#zbbox{
+    height:100%;
+    /*background:url("../images/anchor.jpg") no-repeat;*/
+    position:relative;
+    background-size:cover;
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index:9999;
+}
+.mainIn{position:relative;}
+#fc{position:absolute;left:0;top:10px;z-index:20;width:100%;}
+.zbMessage{
+    float:left;
+    margin-left:10px;
+    height:0.7rem;
+    z-index:10;
+}
+.zbHead,.zbId{float:left;}
+.zbHead{width:0.6rem;height:0.6rem;border-radius:50%;border: 1px solid gold;position:relative;    margin-top: 0.02rem;}
+.zbHead>img{width:100%;border-radius:50%;}
+.zbId{margin-left:5px;font-size:0.24rem;}
+.zbName{color:#fff; }
+.zbFocus{
+    float:left;
+    width:0.72rem;
+    height:0.4rem;
+    margin-top: 0.1rem;
+    z-index:10;
+    margin-left:0.15rem;
+    background:url("../images/gz@2x.png") no-repeat center center;
+    background-size:cover;
+}
+/*顶部头像等信息*/
+.headMessage{height:0.7rem;}
+/*头像列表*/
+.headI{
+    width:0.66rem;
+    height:0.66rem;
+    background:url("../images/headI.png") no-repeat;
+    background-size:cover;
+    margin-right:0.08rem;
+}
+.gzNumber{color:#b6c4e3;}
+.headIcons,.headI{float:left; }
+.headbox{
+    float:right;
+    margin-right: 10px;
+}
+.headIcons{width:2.8rem;height:0.6rem;overflow-x:auto;overflow-y: hidden;}
+.headIconsIn{width:13.8rem;height:0.6rem;display:none;}
+.headIconsIn li{position:relative;}
+.headIcons li{
+    width:0.6rem;
+    height:0.6rem;
+    margin-right:0.09rem;
+    background:url('../images/head.png') no-repeat;
+    background-size:cover;
+    float:left;
+    border-radius:50%;
+    border: 1px solid gold;
+}
+.headIcons li img{width:100%;border-radius:50%;}
+
+.zuxs{position:absolute; right: -0rem;bottom: -.03rem;background:url(../images/m1@2x.png);width:.2rem;height:.2rem;background-size:cover;}
+.zlis {position:absolute; right: -0.07rem;bottom: 0.02rem;/*background:url(../images/m1@2x.png);*/width:.2rem;height:.2rem;background-size:cover;}
+.zlis img{width:100%;}
+/*关注多少名*/
+.loves{width: 1.2rem;height: 1.2rem;position:absolute;right:10px;top:2rem;border-radius:50%;background-color: rgba(0,0,0,.1);}
+.lovesInTop{width:.53rem;height: .42rem;background:url("../images/love1.png") no-repeat;background-size:cover;margin: 0.15rem auto;
+    margin-bottom: 0;font-size:.2rem;}
+.lovesInBottom{text-align:center;opacity: .7;}
+.lovesIn{width:0.7rem;height:0.7rem;position:absolute;left:50%;top:0;margin-left:-0.25rem;}
+.lovesIn img{width:100%;}
+/*评论的板块*/
+marquee{margin-top:0.5rem;}
+.comments{
+    width:4.94rem;
+    height: 3rem;
+    overflow:hidden;
+    overflow-y: auto;
+}
+.comments li{
+    color: green;
+}
+.plbox{height:3rem;position:absolute;left:10px;bottom:1.3rem;z-index:12;}
+
+/*底部聊天*/
+.chat{height:0.8rem;width:100%;box-sizing:border-box;margin-bottom: 0.2rem;position:relative;}
+.chatbox{float:left;margin-left:0.2rem;width:2.8rem;height:0.8rem;line-height:0.8rem;text-indent:0.36rem;border-radius:0.3rem;
+    background:rgba(238,238,238,.3);font-size:0.3rem;}
+.giftbox{float:right;margin-right:0.2rem;}
+.giftbox li{width:0.82rem;height:0.82rem;float:left;margin-left:0.25rem;}
+.giftbox li:nth-child(1){background:url("../images/lw1.png") no-repeat;background-size:cover;}
+.giftbox li:nth-child(2){background:url("../images/share.png") no-repeat;background-size:cover;}
+/*底部下载小草*/
+.download{height:1rem;background:#000;box-sizing:border-box;width:100%;padding:0 0.15rem;}
+.download span {
+    width: 2.4rem;
+    height: .68rem;
+    float: left;
+    background: url("../images/logo@2x.png");
+    background-size: cover;
+    margin-top: .15rem;
+}
+.download a,.overfooter>a{
+    float:right;
+    width: 2.04rem;
+    height: 0.62rem;
+    background:url("../images/xz@2x.png") no-repeat center center;
+    color:#fff;
+    line-height:0.6rem;
+    border-radius:0.1rem;
+    text-align:center;
+
+    margin-top: 0.2rem;
+    font-size: 0.24rem;
+    background-size:cover;
+
+}
+
+/*聊天内容板块*/
+.comments{display:none;}
+/*.active.active{display:block;opacity:1;transition: all 1s linear 3s}*/
+.comments li{line-height:0.5rem;}
+.comments li>span{float:left;}
+.comments .chatIcon{width:0.56rem;height:0.3rem;line-height:0.3rem;text-indent: 0.25rem;font-size:0.20rem;color:#fff;margin-top: 0.05rem;}
+.comments li .chatIcon{background:url("../images/chat1@2x.png") no-repeat center center;background-size:cover;}
+.comments li:nth-child(2n) .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:nth-child(1) .chatIcon{background:url("../images/chat1@2x.png") no-repeat center center;background-size:cover;}
+.comments li:nth-child(2) .chatIcon{background-image:url("../images/chat2@2x.png") }
+.comments li:nth-child(3) .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:nth-child(2n) .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:last-child .chatIcon{background-image:url("../images/chat3@2x.png") }
+.comments li:nth-child(2n+1) .chatIcon{background-image:url("../images/chat2@2x.png") }
+.comments li:nth-child(3n+2) .chatIcon{background-image:url("../images/chat1@2x.png") }
+
+
+.chatName{color:#f5e6c8;margin-left:0.1rem;font-size:0.24rem;}
+.chatContent{text-indent:0.2rem;color:#f0f0f0;font-size:0.24rem;}
+/*#zhezhao{height:100%;width:100%;background:rgba(0,0,0,.3);position:fixed;z-index:888;left:0px;top:0px;height:0px;}*/
+/*下载板块的样式*/
+.downloadbox{
+    width:5.39rem;
+    height:4rem;
+    background:url("../images/downbg.png") no-repeat;
+    background-size:cover;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-2.7rem;
+    margin-top:-2rem;
+    z-index:99000;
+    display:none;
+}
+
+.downButton{
+    width:4rem;
+    height:0.8rem;
+    background:url("../images/downbutton@2x.png") no-repeat;
+    background-size:cover;
+    bottom:.5rem;
+    left:.7rem;
+    position:absolute;
+
+}
+.closeButton{position:absolute;
+    width:1.4rem;
+    height:0.6rem;
+    background:url("../images/downbutton@2x.png") no-repeat;
+    background-size:cover;
+    bottom:.5rem;
+    left:3rem;
+    line-height:.6rem;
+    text-align:center;
+}
+
+/*被设为管理员的样式*/
+.admin{color:#78fafa;text-indent: 0.2rem;font-size: 0.24rem;}
+.it{color:#82f082;}
+.gifshowbox{
+    width:7.5rem;
+    height:3rem;
+    margin-top:4.5rem;
+    position: relative;
+}
+.gifIn{width:4.08rem;height:0.94rem;}
+.gifIn{background:url("../images/lan@2x.png") center center no-repeat;background-size:cover;position: absolute;}
+/*送礼进场*/
+.gifshowbox .gifInBox1 .gifIn:nth-child(1){
+    background-image:url("../images/lan@2x.png");
+    -webkit-animation:bounceInLeft 3s ease-in-out 1s;
+    animation:bounceInLeft 3s ease-in-out 1s;
+}
+.gifshowbox .gifIn:nth-child(2){background-image:url("../images/lv@2x.png");}
+.gifshowbox .gifIn:nth-child(3){background-image:url("../images/c@2x.png");}
+.gifshowbox .gifIn:nth-child(4){background-image:url("../images/z@2x.png");}
+
+/*数字变大*/
+.gifshowbox .gifInBox1 .gifIn:nth-child(1) .showgifNum{background-size:cover;
+    -webkit-animation:scalebig .2s ease-in 4s;
+    animation:scalebig .2s ease-in 4s;
+    background-image:url("../images/s1@2x.png");
+}
+/*第一个礼物条送完之后消失*/
+.gifInBox1{
+    position:absolute;
+    left:10px;
+    top:0px;
+    width: 4.08rem;
+    height: 0.94rem;
+    margin-bottom: 0.1rem;
+    -webkit-animation:ahide .2s ease-in 5s forwards;
+    animation:ahide .2s ease-in 5s forwards;
+}
+/*第二个礼物条送完之后消失*/
+/*第二个礼物进场*/
+.gifInBox2{
+    position:absolute;
+    left:10px;
+    top:1rem;
+    width: 4.08rem;
+    height: 0.94rem;
+    -webkit-animation:ahide .2s ease-in 12s forwards;
+    animation:ahide .2s ease-in 12s forwards;
+}
+#fc .gifshowbox .gifInBox2 .gifIn{
+    background-image:url("../images/lv@2x.png");
+    -webkit-animation:bounceInLeft 3s ease-in-out 8s;
+    animation:bounceInLeft 3s ease-in-out 8s;
+}
+
+#fc .gifshowbox .gifInBox2 .gifIn .showgifNum{
+    background-size:cover;
+    -webkit-animation:scalebig .2s ease-in 11s;
+    animation:scalebig .2s ease-in 11s;
+    background-image:url("../images/s2@2x.png");
+}
+
+/*第三个礼物进场*/
+.gifInBox3{
+    position:absolute;
+    left:10px;
+    top:1.3rem;
+    width: 4.08rem;
+    height: 0.94rem;
+    -webkit-animation:ahide .2s ease-in 18s forwards;
+    animation:ahide .2s ease-in 12s forwards;
+}
+#fc .gifshowbox .gifInBox3 .gifIn{
+    background-image:url("../images/lv@2x.png");
+    -webkit-animation:bounceInLeft 3s ease-in-out 12s;
+    animation:bounceInLeft 3s ease-in-out 12s;
+}
+
+#fc .gifshowbox .gifInBox3 .gifIn .showgifNum{
+    background-size:cover;
+    -webkit-animation:scalebig .2s ease-in 15s;
+    animation:scalebig .2s ease-in 15s;
+    background-image:url("../images/s2@2x.png");
+}
+
+/*第四个礼物*/
+
+.gifInBox4{
+    position:absolute;
+    left:-1000px;
+    top:1rem;
+    width: 4.08rem;
+    height: 0.94rem;
+
+}
+
+.gifInBox4 .showgifNum{background:url("../images/5@2x.png") no-repeat;background-size:cover;}
+
+/*第二个礼物中的数字*/
+.showgifNum{background:url("../images/s2@2x.png") no-repeat;background-size:cover;}
+.gifInBox2 .showgifNum{background-image:url("../images/s2@2x.png");}
+.gifIn .gifInLeft{float:left;}
+.gifIn .gifInRight{position:absolute;right:-0.35rem;top:0rem;}
+.gifInLeftL{width:0.84rem;height:0.84rem;border-radius:50%;background:url("../images/headd.png") no-repeat;background-size:cover;float:left;}
+.gifInLeftR{width:1.51rem;height:0.8rem;float:left;margin-left:0.15rem;}
+.gifInLeftrT{height:0.38rem;line-height:0.38rem;}
+.gifInLeftrB{color:#fbff93;}
+.gifInRight{width:2.13rem;height:0.8rem;float:left;}
+.gifInRightL{width:0.65rem;height:0.61rem;background:url("../images/star.png") center center no-repeat;background-size:cover;margin-top:0.1rem;}
+/*.gifInRight>div{float:left;}*/
+.gifInRightcT{width:0.48rem;height:0.34rem;font-size:0.3rem;color:#fff;margin-bottom:0.1rem;}
+
+.gifInRightC{margin-left:0.08rem;}
+.gifInRightcB{color:#f6eaba;}
+.gifInRightR{width:0.51rem;height:0.64rem;position:relative;margin-left: 0.1rem;}
+.cheng{float:left;}
+.cheng{margin-top:0.43rem;}
+.showgifNum{margin-top:0.43rem;font-size:0.32rem;position:absolute;left:0.25rem;top:0rem;font-size:40rem;}
+
+.showgifNum{position:absolute;left:0.2rem;top: -0.04rem;width: 0.27rem;height: .39rem;color:#f7d640;font-size:0.28rem;font-weight:bold;    }
+.jzb{
+    position: absolute;
+    width:5.67rem;
+    height:0.56rem;
+    background:url("../images/rcbg@2x.png") no-repeat;
+    background-size:cover;
+
+    bottom: 4.2rem;
+    left:0rem;
+    -webkit-animation:fadeInLeft 1s ease-out 7s  both;
+    animation:fadeInLeft 1s ease-out 7s  both;
+}
+
+/*
+进入直播漂浮*/
+.jzb>div{float:left;}
+.jzbLeft{width:1.06rem;height:0.56rem;line-height:0.56rem;text-align:center;background:url(../images/rc@2x.png) no-repeat;background-size:cover;font-size:0.28rem;}
+.jzbCenter,.jzbRight{height:0.56rem;line-height:0.56rem;}
+.jzbCenter{color:#faf082;margin:0 0.27rem;}
+.footer{height:2rem;position: fixed;bottom:0px;left:0px;width:100%;z-index:1000;}
+
+
+
+
+
+
+
+/*底部板块*/
+        .footer{width:1000px;height:200px;;position:fixed;bottom:0px;left:50%;margin-left:-500px;}
+        /*底部聊天*/
+        .chat{height:80px;width:100%;box-sizing:border-box;margin-bottom: 20px;position:relative;}
+        .chatbox{float:left;margin-left:20px;width:280px;height:80px;line-height:80px;text-indent:36px;border-radius:30px;
+            background:rgba(238,238,238,.3);font-size:30px;}
+        .giftbox{float:right;margin-right:20px;}
+        .giftbox li{width:82px;height:82px;float:left;margin-left:25px;}
+        .giftbox li:nth-child(1){background:url("../images/lw1.png") no-repeat;background-size:cover;}
+        .giftbox li:nth-child(2){background:url("../images/share.png") no-repeat;background-size:cover;}
+        /*底部下载小草*/
+        .download{height:100px;background:#000;box-sizing:border-box;width:100%;padding:0 15px;}
+        .download span {
+            width: 240px;
+            height: 68px;
+            float: left;
+            background: url("../images/logo@2x.png");
+            background-size: cover;
+            margin-top: 15px;
+        }
+        .download a,.overfooter>a{
+            float:right;
+            width: 204px;
+            height: 62px;
+            background:url("../images/xz@2x.png") no-repeat center center;
+            color:#fff;
+            line-height:60px;
+            border-radius:10px;
+            text-align:center;
+
+            margin-top: 20px;
+            font-size: 24px;
+            background-size:cover;
+
+        }
+.headMessage{position:absolute;left:50%; top:0px;width:1000px;height:100px;margin-left:-500px;margin-top:10px;}
+
+.zbMessage{
+    float:left;
+    margin-left:10px;
+    height:70px;
+    z-index:10;
+}
+.zbHead,.zbId{float:left;}
+.zbHead{width:60px;height:60px;border-radius:50%;border: 1px solid gold;position:relative;    margin-top: 20px;}
+.zbHead>img{width:100%;border-radius:50%;}
+.zbId{margin-left:5px;font-size:24px;margin-top: 10px;}
+.zbName{color:#fff; }
+.zbFocus{
+    float:left;
+    width:72px;
+    height:40px;
+    margin-top: 10px;
+    z-index:10;
+    margin-left:15px;
+    background:url("../images/gz@2x.png") no-repeat center center;
+    background-size:cover;
+}
+/*顶部头像等信息*/
+.headMessage{height:70px;}
+/*头像列表*/
+.headI{
+    width:66px;
+    height:66px;
+    background:url("../images/headI.png") no-repeat;
+    background-size:cover;
+    margin-right:80px;
+}
+.gzNumber{color:#b6c4e3;}
+.headIcons,.headI{float:left; }
+.headbox{
+    float:right;
+    margin-right: 10px;
+}
+.headIcons{width:280px;height:60px;overflow-x:auto;overflow-y: hidden;}
+.headIconsIn{width:138px;height:60px;}
+.headIconsIn li{position:relative;}
+.headIcons li{
+    width:60px;
+    height:60px;
+    margin-right:90px;
+    background:url('../images/head.png') no-repeat;
+    background-size:cover;
+    float:left;
+    border-radius:50%;
+    border: 1px solid gold;
+}
+.headIcons li img{width:100%;border-radius:50%;}
+
+
+
+
+

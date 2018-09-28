@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- UC强制全屏 --> 
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    
+    <style  type="text/css">
+      [v-cloak] {
+		display: none;!important；
+	  }
+	  .listWraper{flex:1;overflow-y: auto;}
+    </style>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/head.css">
+    <link rel="stylesheet" href="css/gift.css">
+    <link rel="stylesheet" href="css/blockshare.css">
+    <link rel="stylesheet" href="css/footer.css"> 
+    <title>砍价免费拿礼物</title>
+    <script src="js/base/resize.js"></script>
+</head>
+<body>
+    <div id="main" v-cloak>
+      <!-- tabar 模拟原生标题栏 -->
+      <!-- <div id="util_tabbar">
+          <span id="util_backarrow" @click="Toback">返回</span>
+          <span id="util_tabTitle">砍价免费拿礼物</span>
+          <span id="util_shareButton">分享</span>
+      </div> -->
+      <!-- banner -->
+      <div class="banner"></div>
+      <!-- runMessage 跑马灯 -->
+      <div class="runMessageBox" v-if="list.length">
+            <ul class="runMessage" id="runMessage" v-if="list.length">
+                    <li v-for="item in list"  v-text="item"></li>
+             </ul>
+           
+      </div>
+     
+      <!-- listWrapper 的开始 -->
+      <div class="listWraper">
+      <!--  特定奖励--> 
+		      <div class="refreshTime" >特定奖励</div>
+		      <!-- 等级砍价 -->
+		       <!-- 特定奖励列表,主播或者用户 -->
+		      <div class="gifbox"  v-if="grade_product.length">
+		            <ul class="giftlists" >
+		                <li v-for="(item ,key) in grade_product" v-if="key==0&&!(grade==preLeve&&preis_kanjia)">
+		                 <div class="imgbox" >
+		                   <img width="120" class="giftImg" v-bind:src="imgurl(item)" alt="">
+		                 </div>
+		                <div class="li_right">
+		                    <span class="purse" style="font-size:14px;flex:2">[<i>{{item.goods_name}}</i>]<span style="width:5px;"></span>限量礼物赶紧来抢!</span>
+		                    <span class="red"  style="font-size:14px;">原价<i >{{(item.goods_price/100).toFixed(2)}}</i>元</span>
+		                    <span class="gray" style="color:#00fb01"><span v-show="identity==2">主播</span><span v-show="identity!=2">用户</span>{{item.content}}</span>
+		                    <span class="gray">已获得0元获得资格</span>
+		                    <a class="kbut" v-show="grade==item.level&&(!item.is_kanjia)" style="padding:0 0.05rem;"  @click="shareshow(item,key,$event)">发起砍价</a>                  
+		                    <a class="kbut" v-show="Number(grade)!=Number(item.level)||Number(item.is_kanjia)==1" style="background:#99999a;color:#fff; padding: 0 0.05rem;width:1.5rem;">条件不满足</a>
+		                </div>
+		                </li>
+		                <li v-for="(item ,key) in grade_product" v-if="key==1&&(grade==preLeve&&preis_kanjia)&&item.goods_id">
+		                 <div class="imgbox" >
+		                   <img width="120" class="giftImg" v-bind:src="imgurl(item)" alt="">
+		                 </div>
+		                <div class="li_right">
+		                    <span class="purse" style="font-size:14px;flex:2">[<i>{{item.goods_name}}</i>]<span style="width:5px;"></span>限量礼物赶紧来抢!</span>
+		                    <span class="red"  style="font-size:14px;">原价<i >{{(item.goods_price/100).toFixed(2)}}</i>元</span>
+		                    <span class="gray" style="color:#00fb01"><span v-show="identity==2">主播</span><span v-show="identity!=2">用户</span>{{item.content}}</span>
+		                    <span class="gray">已获得0元获得资格</span>
+		                   <!--  <a class="kbut" v-show="grade==item.level&&(!item.is_kanjia)" style="padding:0 0.05rem;"  @click="shareshow(item,key,$event)">发起砍价</a> -->                  
+		                    <a class="kbut"  style="background:#99999a;color:#fff; padding: 0 0.05rem;width:1.5rem;">条件不满足</a>
+		                </div>
+		                </li>
+		            </ul>
+		      </div>
+		     
+		      <!-- 道具砍价 的开始!-->
+		      <div class="gifbox"  v-if="tool_product.length">
+		            <ul class="giftlists" >
+		                <li v-for="(item,key) in tool_product">
+		                 <div class="imgbox" >
+		                    <img width="120" class="giftImg" v-bind:src="imgurl(item)" alt="">
+		                 </div>
+		                <div class="li_right">
+		                    <span class="purse" style="font-size:14px;flex:2">[<i>{{item.goods_name}}</i>]<span style="width:5px;"></span>限量礼物赶紧来抢!</span>
+		                    <span class="red"  style="font-size:14px;">原价<i >{{(item.goods_price/100).toFixed(2)}}</i>元</span>
+		                    <span class="gray" >拥有"{{item.goods_name}}"礼物券时开启</span>
+		                    <span class="gray">已获得0元获得资格</span>
+		                    <a class="kbut"   @click="shareshow(item,key,$event)">发起砍价</a>                  
+		                   
+		                </div>
+		                </li>
+		            </ul>
+		      </div>
+		      <!-- 道具砍价的结束! -->
+		      <!-- 距离下次物品更新time -->
+		      <!-- 距离下次物品更新time -->
+               <div class="refreshTime" v-if="downtimeFlag">距离下次物品更新<i v-text="downtime" style="margin-left:10px;"></i></div>
+                 <!-- 礼物列表的开始 -->
+		      <div class="gifbox" v-if="giftFlag">
+		            <ul class="giftlists" v-if="goodslists.length">
+		                <li v-for="(item ,key ) in goodslists">
+		                 <div class="imgbox" >
+		                    <img width="120" class="giftImg" v-bind:src="imgurl(item)" alt="">
+		                 </div>
+		                <div class="li_right">
+		                    <span class="purse" style="font-size:14px;flex:2">[<i v-text="item.goods_name"></i>]<span style="width:5px;"></span>限量礼物赶紧来抢!</span>
+		                    <span class="red"  style="font-size:14px;">原价<i >{{(item.gift_price/100).toFixed(2)}}</i>元</span>
+		                    <span class="gray" ><i class="current_people" v-text="item.current_people"></i>/<i v-text='item.gift_num'></i></span>
+		                    <span class="gray">已获得0元获得资格</span>
+		                    <a v-if="Number(item.current_people) < Number(item.gift_num)" class="kbut" href="javascript:;" @click="shareshow(item,key,$event)">0元砍下</a>                  
+		                    <a v-if="Number(item.current_people) >= Number(item.gift_num)" class="kbut2" href="javascript:;">被抢光了</a>
+		                </div>
+		                </li>
+		            </ul>
+		      </div>
+            <!-- 礼物列表结束 -->
+      </div>
+      <!-- listWrapper 的结束 -->
+      <!-- 底部tab -->
+      <!--  
+      <div id="tab">
+            <span class="left select" @click="tohome">
+                <i class="iconGood"></i>
+                <span>砍价商品</span>    
+            </span>
+            <span class="right" @click="toMygoods">
+                <i class="iconMyGood"></i>
+                <span>我的商品 </span>  
+                <i  class="dot" v-if="myGoodsNum" >({{myGoodsNum}})</i>  
+            </span>
+      </div> 
+      -->
+      <div id="tab">
+            <span class="left select" @click="tohome">
+                 
+            </span>
+            <span class="right" @click="toMygoods">
+                <i  class="dot" v-if="myGoodsNum" >({{myGoodsNum}})</i>  
+            </span>
+      </div> 
+      <!-- 分享view -->
+      <div class="blockShare" @click="closeShare">
+        <div class="shareContent">
+            <p class="shareText"><span id="shareText1">首刀砍掉</span><span class="yellow" >{{(cut1_money/100).toFixed(2)}}</span>元,还差<span class="yellow" >{{(leave_money/100).toFixed(2)}}</span><span>元,</span><span id="shareText2">分享给好友快速帮你砍价吧!</span></p>
+            <div class="shareBottom">
+                <div class="icons" @click.stop="share(2)">
+                    <div class="wx" >
+                           
+                    </div>
+                </div>
+                <div class="shareclose" @click="closeShare">取消</div>
+            </div>
+        </div>
+    </div>
+      <!-- 有正在砍价的提示框 -->
+      <div id="tipskangbox">
+        <div class="tipkanIn">
+	        <p>您已经有正在砍价的礼物啦~</p>
+	        <p>快去分享给更多好友帮忙砍价吧!</p>
+	        <div class="bottom">
+	          <span class="kanclose" @click="closetipskangbox">取消</span> <span class="tomygoods" @click="toMygoods">查看我的砍价</span>
+	        </div>
+        
+        </div>
+      </div>
+     <!-- web分享view -->
+      <div class="blockWebShare2" @click="closeBlockWebShare2">
+        <div class="blockWebShare2Top">右上角分享吆!</div>
+        <div class="blockWebShare2Center">
+            <p class="shareText"><span id="shareText1">首刀砍掉</span><span class="yellow" >{{(cut1_money/100).toFixed(2)}}</span>元,还差<span class="yellow" >{{(leave_money/100).toFixed(2)}}</span><span>元,</span><span id="shareText2">分享给好友快速帮你砍价吧!</span></p>
+        </div>
+     </div>
+      <div class="tipbox">
+        <p class="tips" v-text="tipMessage"></p>
+        <bottom class="tipsclose" @click="tipsclose">取消</bottom>
+      </div>
+    </div>
+</body>
+</html>
+<script >
+
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="js/base/jquery-1.7.2.min.js"></script>
+<script src="js/base/isPhone.js"></script>
+<script src="js/base/vue.min.js"></script>
+<script src="js/base/axios.js"></script>
+<script src="js/base/prefixfree.min.js"></script>
+<script src="js/index.js?v=3.1"></script>
+<script>
+ var orunMessage=document.getElementById("orunMessage");
+ var list=[{"content":"大海拿到了免费礼物小鲜花"},{"content":"大海2拿到了免费礼物小鲜花"}]
+
+
+
+
+ 
+</script>

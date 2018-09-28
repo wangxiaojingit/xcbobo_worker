@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link type="text/css"  rel="stylesheet" href="css/end.css"/>
+</head>
+<body ng-app="endshare" ng-controller="myCtrl">
+<div id="main">
+    <div class="zbOver" >
+        <div class="overTop">
+            <div class="overHeadBox">
+                <div class="overHead"><img src="{{headUrl}}" alt=""/></div>
+            </div>
+
+            <div class="zbname">{{name}}</div>
+            <div class="zbname">{{zid}}</div>
+            <div class="overTopMain">
+                <p>直播已结束</p>
+                <p><span>{{overData.num||0}}</span>人看过直播</p>
+                <p>
+                    <span>直播时长:</span>
+                    <span >{{TimeDataH||0}}小时</span>
+                    <span >{{TimeDataM||0}}分</span>
+                </p>
+
+
+                <p>下载小草app更多精彩等着你>>  </p>
+            </div>
+        </div>
+        <div class="overCenter">
+            <div class="overcTop clearfix">
+                <!--<div class="rmzb">热门直播</div>
+                    <a class="more" href="javascript:">更多</a>
+                    -->
+            </div>
+            <ul class="overBottom">
+                <li ng-repeat="bg in rmlistData">
+                    <img src="{{rymnamePho+bg.photo+'.png'}}" alt=""/>
+                    <div class="tips">
+                        <div class="tipsTop">{{bg.zbname}}</div>
+                      
+                        <div class="tipsBottom clearfix">
+                            <div class="tipsbl">{{bg.province}}</div>
+                            <div class="tipsbR">{{bg.cid}}人</div>
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="overfooter">
+        <div></div>
+        <a id="dh"  href="{{downHref}}"></a>
+    </div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script src="js/angular.js"></script>
+<script type="text/javascript"><!--
+    ~function(){
+        /*控制页面的自适应*/
+        var desW=750,winW=document.documentElement.clientWidth||document.body.clientWidth;
+        var omain=document.getElementById("main");
+        var ratio=winW/desW;
+        if(winW>750){
+            omain.style.width="750px";
+            omain.style.margin="0 auto";
+            $(".overfooter").css("width","750px");
+            $(".overfooter").css("left","50%");
+            $(".overfooter").css("marginLeft","-375px");
+            document.documentElement.style.fontSize="100px";
+            return;
+        }
+        document.documentElement.style.fontSize=ratio*100+"px";
+        var screenH=document.documentElement.clientHeight||document.body.clientHeight;
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        var downHref="";
+        function parameter(){
+            var url=document.location.href;
+            //  var url="http://www.xiuktv.com/xcbb_web/h5Activity/getSharePageInfo?zid=10004125&uid=10004122&type=1&sex=1&page=1&pageSize=100&token=123&province=111&nice=小辣"
+            var obj={};
+            var tem=[];
+            var ary=url.split("?")[1].split("&");
+            for(var i=0;i<ary.length;i++){
+                var cur=ary[i];
+                tem= cur.split("=");
+                obj[tem[0]]=tem[1];
+            }
+            return obj;
+        }
+        
+
+        //判断域名
+
+        var ymname="";
+       
+        if(parameter.ym=="1"){
+        	ymname="http://www.xcbobo.com";
+        }else{
+        	ymname="http://www.xiuktv.com";
+        }
+       
+        /*判定是安卓还是ios加载下载链接*/
+        if(isAndroid){
+            //downHref=ymname+"/xcbb_web/resources/download/anzhuo.apk";
+            downHref="http://a.app.qq.com/o/simple.jsp?pkgname=com.prsoft.xcshow&ckey=CK1365767037332";
+        }else if(isiOS){
+            downHref="https://itunes.apple.com/cn/app/id1191416714";
+            //$("#downloadRight").attr("href","https://itunes.apple.com/cn/app/%E5%B0%8F%E8%8D%89%E6%92%AD%E6%92%AD-%E7%9C%9F%E4%BA%BA%E8%A7%86%E9%A2%91%E5%9C%A8%E7%BA%BF%E7%9B%B4%E6%92%AD-k%E6%AD%8C%E5%A8%B1%E4%B9%90%E4%BA%A4%E5%8F%8B-%E6%B8%B8%E6%88%8F%E4%BA%92%E5%8A%A8-%E5%85%A8%E6%B0%91%E7%9B%B4%E6%92%AD%E7%A7%80%E5%9C%BA%E5%B9%B3%E5%8F%B0/id1016409459?mt=8")
+
+        }else{
+            $("#dh").attr("href","http://www.xiuktv.com/");
+        }
+        $("#dh").attr("href",downHref);
+        $("#startFmInR").attr("href",downHref);
+
+    }();
+    /*判定如果是在pc端打开*/
+    /*
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent.toLowerCase();
+        var Agents = ["android", "iphone", "symbianOS", "windows phone", "ipad", "ipod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) < 0) {
+                $("#dh").attr("href","http://www.xiuktv.com/");
+                $(".gifshowbox").css("margin-top","1rem");
+            }
+        }
+    }
+    IsPC();*/
+</script>
+<script type="text/javascript" >
+
+    //让直播的板块的高度等于手机一屏幕的高度
+    var winH=document.documentElement.clientHeight;
+    var winW=document.documentElement.clientWidth;
+   // var Ozbbox=document.getElementById("zbbox");
+    var ofc=document.getElementById("fc");
+
+
+
+</script>
+
+<script type="text/javascript">
+    var endApp = angular.module('endshare', []);
+    endApp.controller('myCtrl',function ($scope,$http,$location) {
+
+        function parameter(){
+            var url=document.location.href;
+            //  var url="http://www.xiuktv.com/xcbb_web/h5Activity/getSharePageInfo?zid=10004125&uid=10004122&type=1&sex=1&page=1&pageSize=100&token=123&province=111&nice=小辣"
+            var obj={};
+            var tem=[];
+            var ary=url.split("?")[1].split("&");
+            for(var i=0;i<ary.length;i++){
+                var cur=ary[i];
+                tem= cur.split("=");
+                obj[tem[0]]=tem[1];
+            }
+            return obj;
+        }
+        
+
+        //判断域名
+
+        var ymname="";
+        var ymnamePho="";
+        if(parameter().ym=="1"){
+        	ymname="http://www.xcbobo.com";
+        	ymnamePho="http://image.xcbobo.com";
+        }else{
+        	ymname="http://www.xiuktv.com";
+        	ymnamePho="http://www.xiuktv.com";
+        	
+        }
+        $scope.zid=parameter().zid;
+        $scope.uid=parameter().uid;
+        $scope.type=parameter().type;
+        $scope.name=decodeURI(parameter().name);
+        var strUrl=ymname+"/xcbb_web/h5Activity/getSharePageInfo?zid="+$scope.zid+"&uid="+$scope.uid+"&type="+$scope.type;
+        //昵称
+        $("title").html(name+'的直播间');
+        $http.get(strUrl)
+                .success(function (response) {
+                    /*直播结束*/
+                    //让body改变颜色
+                    $("body").css("background","#8d50a1");
+                    //让video消失
+                    $("#videoBar").hide();
+                    $scope.overData=response.liveOverInfo;
+                    /*请求头像*/
+                    $scope.headUrl=ymnamePho+"/PubImgSour/"+response.liveOverInfo[0].photo+".png";
+
+                    /*请求的时长:overData.liveLeng,请求结果为s,要变成时分
+                     * 原理:除3600,除完之后看是不是整数,如果是整数
+                     * */
+                    if($scope.overData.liveLeng){
+                        $scope.TimeData= Number($scope.overData.liveLeng)/3600;
+                    }
+                    if(($scope.TimeData+'').indexOf(".")>0){
+                        /*说明不是整小时*/
+                        $scope.TimeData= $scope.hourData.split(".");
+                        $scope.TimeDataH=$scope.TimeData[0];
+                        $scope.TimeDataM=Math.round($scope.TimeData[1]*60);
+                    }else{
+                        /*如果能整除,说明只有小时*/
+                        $scope.TimeDataH=$scope.TimeData;
+                        $scope.TimeDataM=0;
+                    }
+                    /*热门列表服务*/
+                    //http://www.xiuktv.com/xcbb_web/mobileLive/searchRecentUserLiveResult?uid=10002572&sex=2&province=111&type=3&page=1&pageSize=100&token=123
+var str=ymname+"/xcbb_web/mobileLive/searchRecentUserLiveResult?sex=2&province=北京&type=3&page=1&pageSize=10&token=123&packageName=pc&version=pc&channel=pc&clientType=3&uid=";
+                    var rmurl=str+$scope.uid;
+                    $http.post(rmurl)
+                            .success(function (response) {
+                                console.log(response)
+                                $scope.rmlistData=response.list;
+                                //str.split("PubImgSour/")[1]
+                                
+                                 $scope.rymnamePho=ymnamePho+"/PubImgSour/"
+                            });
+
+                });
+
+
+
+
+    })
+
+</script>
